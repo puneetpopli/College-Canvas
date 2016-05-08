@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>College Canvas</title>
+
+    <!--jQuery Mobile-->
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+</head>
+<body>
+
+<!--  Signup/Login page -->
+<div data-role="page" id="loginpage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="tabs">
+
+            <div class="container">
+
+            <div id="one" class="ui-content">
+                <div>
+                    <form id="login_form">
+                        <div data-role="fieldcontain">
+                            <input type="email" name="user_email" id="user_email"
+                                   data-clear-btn="true" value="" placeholder="User Email"
+                                   autocomplete="on">
+                            <input type="password" name="user_password" id="user_password"
+                                   data-clear-btn="true" value="" placeholder="Password"
+                                   autocomplete="off">
+                        </div>
+
+                        <div id="tabs" data-tabs="tabs">
+                            <p class="text-center" style="text-align:center;"><a href="#singuppage" data-toggle="tab">Need an Account?</a></p>
+                        </div>
+
+                        <p style="text-align: center;">
+                            <a href="#singuppage" class="ui-btn ui-btn-b" id="do_login" data-role="button"
+                               data-icon="check" style="background: #0058AB; color: white;">Login</a>
+                        </p>
+
+
+                    </form>
+                </div>
+            </div>
+       </div>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>CMPE-235</h4>
+    </div><!-- /footer -->
+</div>
+
+
+<!--SIGNUP PAGE -->
+<!--  Signup/Login page -->
+<div data-role="page" id="singuppage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+    </div>
+    <div data-role="content">
+        <div data-role="tabs">
+
+            <div class="container">
+            <div id="two" class="ui-content">
+
+                <div>
+                    <form id="formSignup">
+                        <p style="text-align: center;">
+                            <span><strong>Sign Up into College Canvas</strong></span>
+                        </p>
+
+                        <p style="text-align: center;">
+                        <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                            <input type="text" name="firstname" id="firstname"
+                                   data-clear-btn="true" value="" placeholder="First Name"
+                                   autocomplete="on">
+                        </div>
+                        </p>
+
+                        <p style="text-align: center;">
+                            <input type="text" name="lastname" id="lastname"
+                                   data-clear-btn="true" value="" placeholder="Last Name"
+                                   autocomplete="on">
+                        </p>
+
+                        <p style="text-align: center;">
+                            <input type="email" name="email" id="email"
+                                   data-clear-btn="true" value="" placeholder="Email Id"
+                                   autocomplete="on">
+                        </p>
+
+                        <p style="text-align: center;">
+                            <input type="password" name="password" id="password"
+                                   data-clear-btn="true" value="" placeholder="Password"
+                                   autocomplete="on">
+                        </p>
+
+                        <p style="text-align: center;">
+                            <input type="password" name="confirmpassword"
+                                   id="confirmpassword"
+                                   data-clear-btn="true" value="" placeholder="Confirm Password"
+                                   autocomplete="on">
+                        </p>
+
+                        <p style="text-align: center;">
+                            <input type="text" name="studentid" id="studentid"
+                                   data-clear-btn="true" value="" placeholder="User Id"
+                                   autocomplete="on">
+                        </p>
+
+                        <p style="text-align: center;">
+                            <a href="#" class="ui-btn ui-btn-b" id="btn_do_Signup" style="background: #0058AB; color: white;">Sign Up</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <h4>CMPE-235</h4>
+    </div><!-- /footer -->
+</div>
+
+</body>
+</html>
