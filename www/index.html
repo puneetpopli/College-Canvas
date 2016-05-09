@@ -6,14 +6,18 @@
     <title>College Canvas</title>
 
     <!--jQuery Mobile-->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <!--My script -->
+    <script src="js/index.js"> </script>
 
 </head>
 <body>
@@ -40,13 +44,17 @@
                                    data-clear-btn="true" value="" placeholder="Password"
                                    autocomplete="off">
                         </div>
+                        
+                        <div id="authdiv">
+                            <p style="color: red; text-align: center;">Incorrect email or password!</p>
+                        </div>
 
                         <div id="tabs" data-tabs="tabs">
                             <p class="text-center" style="text-align:center;"><a href="#singuppage" data-toggle="tab">Need an Account?</a></p>
                         </div>
 
                         <p style="text-align: center;">
-                            <a href="#singuppage" class="ui-btn ui-btn-b" id="do_login" data-role="button"
+                            <a href="#" class="ui-btn ui-btn-b" id="btnLogin" data-role="button"
                                data-icon="check" style="background: #0058AB; color: white;">Login</a>
                         </p>
 
@@ -99,7 +107,7 @@
 
                         <p style="text-align: center;">
                             <input type="text" name="studentid" id="studentid"
-                                   data-clear-btn="true" value="" placeholder="User Id"
+                                   data-clear-btn="true" value="" placeholder="Student Id"
                                    autocomplete="on">
                         </p>
 
@@ -125,7 +133,7 @@
 
 
                         <p style="text-align: center;">
-                            <a href="#" class="ui-btn ui-btn-b" id="btn_do_Signup" style="background: #0058AB; color: white;">Sign Up</a>
+                            <a href="#" class="ui-btn ui-btn-b" id="btnSubmit" style="background: #0058AB; color: white;">Sign Up</a>
                         </p>
                     </form>
                 </div>
