@@ -1,0 +1,25 @@
+.ui-page {
+    background: transparent;
+}
+.ui-content{
+    background: transparent;
+}
+
+#loginpage, #singuppage {
+    background-image:url('http://www.puneetpoplisjsu.com/background-pattern.png');
+}
+@media only screen and (min-width: 24.01em) {
+    .container {
+        max-width: 20.3em;
+        padding: 0 1.5rem .5rem;
+        margin-top: 16%;
+    }
+}
+
+.container {
+    background-color: #ffffff;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+

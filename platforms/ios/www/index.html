@@ -6,15 +6,17 @@
     <title>College Canvas</title>
 
     <!--jQuery Mobile-->
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-
+    <!--My script -->
+    <script src="js/index.js"></script>
 </head>
 <body>
 
@@ -40,17 +42,19 @@
                                    data-clear-btn="true" value="" placeholder="Password"
                                    autocomplete="off">
                         </div>
+                        
+                        <div id="authdiv">
+                            <p style="color: red; text-align: center;">Incorrect email or password!</p>
+                        </div>
 
                         <div id="tabs" data-tabs="tabs">
                             <p class="text-center" style="text-align:center;"><a href="#singuppage" data-toggle="tab">Need an Account?</a></p>
                         </div>
 
                         <p style="text-align: center;">
-                            <a href="#singuppage" class="ui-btn ui-btn-b" id="do_login" data-role="button"
+                            <a href="#" class="ui-btn ui-btn-b" id="btnLogin" data-role="button"
                                data-icon="check" style="background: #0058AB; color: white;">Login</a>
                         </p>
-
-
                     </form>
                 </div>
             </div>
@@ -61,8 +65,6 @@
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
-
-
 <!--SIGNUP PAGE -->
 <!--  Signup/Login page -->
 <div data-role="page" id="singuppage" data-quicklinks="true" class="ui-responsive-panel">
@@ -85,46 +87,39 @@
                         <p style="text-align: center;">
                         <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
-                            <input type="text" name="firstname" id="firstname"
-                                   data-clear-btn="true" value="" placeholder="First Name"
-                                   autocomplete="on">
+                            <input type="text" name="firstname" id="firstname" data-clear-btn="true" value="" placeholder="First Name" autocomplete="on">
                         </div>
+                        
+                        <p style="text-align: center;">
+                            <input type="text" name="lastname" id="lastname" data-clear-btn="true" value="" placeholder="Last Name" autocomplete="on">
                         </p>
 
                         <p style="text-align: center;">
-                            <input type="text" name="lastname" id="lastname"
-                                   data-clear-btn="true" value="" placeholder="Last Name"
-                                   autocomplete="on">
+                            <input type="text" name="studentid" id="studentid" data-clear-btn="true" value="" placeholder="Student Id" autocomplete="on">
                         </p>
 
                         <p style="text-align: center;">
-                            <input type="email" name="email" id="email"
-                                   data-clear-btn="true" value="" placeholder="Email Id"
-                                   autocomplete="on">
+                            <input type="email" name="email" id="email" data-clear-btn="true" value="" placeholder="Email Id" autocomplete="on">
                         </p>
 
                         <p style="text-align: center;">
-                            <input type="password" name="password" id="password"
-                                   data-clear-btn="true" value="" placeholder="Password"
-                                   autocomplete="on">
+                            <input type="password" name="password" id="password" data-clear-btn="true" value="" placeholder="Password" autocomplete="on">
                         </p>
 
                         <p style="text-align: center;">
-                            <input type="password" name="confirmpassword"
-                                   id="confirmpassword"
-                                   data-clear-btn="true" value="" placeholder="Confirm Password"
-                                   autocomplete="on">
+                            <input type="password" name="confirmpassword" id="confirmpassword" data-clear-btn="true" value="" placeholder="Confirm Password" autocomplete="on">
                         </p>
 
-                        <p style="text-align: center;">
-                            <input type="text" name="studentid" id="studentid"
-                                   data-clear-btn="true" value="" placeholder="User Id"
-                                   autocomplete="on">
-                        </p>
+
 
                         <p style="text-align: center;">
-                            <a href="#" class="ui-btn ui-btn-b" id="btn_do_Signup" style="background: #0058AB; color: white;">Sign Up</a>
+                            <a href="#homepage" class="ui-btn ui-btn-b" id="btnSubmit" style="background: #0058AB; color: white;">Sign Up</a>
                         </p>
+						
+						<div id="tabs" data-tabs="tabs">
+                            <p class="text-center" style="text-align:center;"><a href="#loginpage" data-toggle="tab">Already have Account ?</a>
+							</p>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -133,8 +128,44 @@
     </div>
     <div data-role="footer" data-position="fixed">
         <h4>CMPE-235</h4>
+    </div>
+</div>
+	
+<!-- Home Page -->
+	
+<div data-role="page" id="homepage" data-quicklinks="true" class="ui-responsive-panel">
+	<div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+  	</div>
+	<div data-role="content">
+	<p style="text-align:right;">
+	<a href="#loginpage"><img src="img/Exit.png"></a>
+	</p>
+		<div data-role="tabs">
+			<div class="container">
+            	<div id="three" class="ui-content">
+					 <p style="text-align: center;">
+                     	<a href="#coursedescription" id="btnCourceDescription"><img src=img/course_desc.png></a>
+                     </p>
+					<p style="text-align: center;">
+                     	<a href="#coursedescription">Topic 2</a>
+                     </p>
+					<p style="text-align: center;">
+                     	<a href="#coursedescription">Topic 3</a>
+                     </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div data-role="footer" data-position="fixed">
+        <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
-
+	
+	
+<script>
+	
+	
+</script>
 </body>
 </html>

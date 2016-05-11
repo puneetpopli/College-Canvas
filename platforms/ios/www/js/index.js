@@ -1,49 +1,114 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        this.bindEvents();
-    },
-    // Bind Event Listeners
-    //
-    // Bind any events that are required on startup. Common events are:
-    // 'load', 'deviceready', 'offline', and 'online'.
-    bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-    },
-    // deviceready Event Handler
-    //
-    // The scope of 'this' is the event. In order to call the 'receivedEvent'
-    // function, we must explicitly call 'app.receivedEvent(...);'
-    onDeviceReady: function() {
-        app.receivedEvent('deviceready');
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+$(document).ready(function() {
+    $("#authdiv").hide();
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+    //signup page
+    $("#btnSubmit").click(function(){
+        var record;
+        var key;
+		
+		var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
+		var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+		var nameCompare = /^[a-zA-Z]{2,30}$/;
+		var idCompare = /^\d{10}$/;
+		var fname = $("#firstname").val();
+		var lname = $("#lastname").val();
+		var id = $("#studentid").val();
+		var email = $("#email").val();
+		var password = $("#password").val();
+		var confirmpassword = $("#confirmpassword").val();
+		
+		if(email == "" || email == " " || !emailCompare.test(email)){
+			alert("Enter correct Email ID");
+			return false;
+		}else if(password == "" || !passwordCompare.test(password)) {
+			alert("Wrong Password");
+			return false;
+		}else if(confirmpassword != password){
+			alert("Confirm password does not match");
+			return false;
+		}else if(!nameCompare.test(fname) || fname == ""){
+			alert("Enter First Name");
+			return false;
+		}else if(!nameCompare.test(lname) || lname == ""){
+			alert("Enter Last Name");
+			return false;
+		}else if(!idCompare.test(id) || id == "" || id == " "){
+			alert("Enter a Student ID");
+			return false;
+		}else{
+			
+			
+			
+        if ('localStorage' in window && window['localStorage'] !== null) {
+            //alert("button");
+            try {
+                var user = JSON.stringify({ 
+                    firstname: $("#firstname").val(), 
+                    lastname: $("#lastname").val(), 
+                    studentid: $("#studentid").val(), 
+                    email: $("#email").val(), 
+                    password: $("#password").val(), 
+                    confirmpassword: $("#confirmpassword").val()  
+                }),
 
-        console.log('Received Event: ' + id);
-    }
-};
+                record = JSON.stringify(user);
+                key = $("#email").val();
+                localStorage.setItem(key, record);
+                alert("The data was saved.");
+                console.log(user);
+                return true;
+            } catch (e) {
+                if (e == QUOTA_EXCEEDED_ERR) {
+                    alert('Quota exceeded!');
+                }
+            }
+        } else {
+            alert('Cannot store user preferences as your browser do not support local storage');
+        }
+			
+			
+		}
+			
+			
+			
+			
+    });
+
+
+    //Login
+    $("#btnLogin").click(function(){
+        var email =  $("#user_email").val().toLowerCase();
+        var pass =  $("#user_password").val();
+        var stringEmail = String(email);
+        var obj = localStorage.getItem(stringEmail);
+		var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
+		var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+
+		if(email == "" || email == " " || !emailCompare.test(email)){
+			alert("Enter correct Email ID");
+		}else if(pass == "" || !passwordCompare.test(pass)) {
+			alert("Wrong Password");
+		}else{
+        if(obj!=null || obj!=undefined) {
+            console.log(obj);
+
+           		var jsonobj = $.parseJSON(obj);
+
+            	var res = JSON.parse(jsonobj);
+
+            	//check password and email
+
+            	if(res.email==email && res.password==pass) {
+                console.log('authenticated');
+            	}
+            	else {
+
+                $("#authdiv").show();
+            	}
+
+        		}
+			}
+    });
+        
+
+});
