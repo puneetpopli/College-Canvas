@@ -26,12 +26,30 @@
     <div data-role="header" data-theme="b" data-position="fixed">
         <h1>College Canvas</h1>
     </div>
+
     <div data-role="content">
+
+
+
         <div data-role="tabs">
+            <br><br><br>
 
-            <div class="container">
+            <div class="container" style="margin-top: auto">
 
-            <div id="one" class="ui-content">
+
+                <div id="one" class="ui-content">
+
+
+                    <div class="ui-grid-a" align="center" style="float: top;">
+
+
+                            <div class="circular">
+                                <img src="http://puneetpoplisjsu.com/sjsu-icon.png" alt="sjsu" />
+                            </div>
+
+
+                    </div>
+
                 <div>
                     <form id="login_form">
                         <div data-role="fieldcontain">
@@ -75,13 +93,19 @@
     <div data-role="content">
         <div data-role="tabs">
 
-            <div class="container">
+            <div class="container" style="margin-top: 10px;">
             <div id="two" class="ui-content">
+
+                <div class="ui-grid-a" align="center" style="margin-bottom: 20px;">
+                        <div class="circular">
+                            <img src="http://puneetpoplisjsu.com/sjsu-icon.png" alt="sjsu" />
+                        </div>
+                </div>
 
                 <div>
                     <form id="formSignup">
                         <p style="text-align: center;">
-                            <span><strong>Sign Up into College Canvas</strong></span>
+                           <!-- <span><strong>Sign Up into College Canvas</strong></span>-->
                         </p>
 
                         <p style="text-align: center;">
@@ -209,7 +233,7 @@
 
 
     <!--Outside panel content -->
-
+    <br><br>
     <div data-role="content">
 
 
@@ -218,14 +242,14 @@
             <div class="ui-block-a" align="center">
 
                 <div class="circle">
-                    <a href="#" class="stylish">My Courses</a>
+                    <a href="#mycoursespage" class="stylish">My Courses</a>
                 </div>
 
 
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#" class="stylish">Course Settings</a>
+                    <a href="#settingspage" class="stylish">Course Settings</a>
                 </div>
 
             </div>
@@ -234,7 +258,7 @@
         <div class="ui-grid-a" align="center">
             <div class="ui-block-a" align="center">
                 <div class="circle">
-                    <a href="#" class="stylish">Calculate Grade</a>
+                    <a href="#calculategradepage" class="stylish">Calculate Grade</a>
                 </div>
 
             </div>
@@ -255,8 +279,167 @@
 </div>
 
 
-<!-- -->
-	
+<!--User page end -->
+
+
+<!--My Courses -->
+<div data-role="page" id="mycoursespage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <!--Panel Start -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
+        <h2 style="text-align: center;">User Profile</h2>
+
+        <!--Panel Content-->
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <label for="fname">First Name:</label>
+            <input type="text" data-clear-btn="false" name="fname" id="fname" value="" disabled>
+            <label for="lname">Last Name:</label>
+            <input type="text" data-clear-btn="false" name="lname" id="lname" value="" disabled>
+
+            <label for="sid">Student Id:</label>
+            <input type="text" data-clear-btn="false" name="sid" id="sid" value="" disabled>
+            <label for="eid">Email Id:</label>
+            <input type="text" data-clear-btn="false" name="eid" id="eid" value="" disabled>
+
+            <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
+            <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
+
+        </div>
+
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+
+    </div>
+    <!--Panel End -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
+
+    <!--Outside panel content -->
+    <br><br>
+    <div data-role="content">
+
+
+    <!-- -->
+
+    <div data-role="footer" data-position="fixed">
+        <h4>CMPE-235</h4>
+    </div><!-- /footer -->
+    </div>
+</div>
+
+<!--My Courses end -->
+
+
+<!--Courses Setting-->
+<div data-role="page" id="settingspage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <!--Panel Start -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
+        <h2 style="text-align: center;">User Profile</h2>
+
+        <!--Panel Content-->
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <label for="fname">First Name:</label>
+            <input type="text" data-clear-btn="false" name="fname" id="fname" value="" disabled>
+            <label for="lname">Last Name:</label>
+            <input type="text" data-clear-btn="false" name="lname" id="lname" value="" disabled>
+
+            <label for="sid">Student Id:</label>
+            <input type="text" data-clear-btn="false" name="sid" id="sid" value="" disabled>
+            <label for="eid">Email Id:</label>
+            <input type="text" data-clear-btn="false" name="eid" id="eid" value="" disabled>
+
+            <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
+            <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
+
+        </div>
+
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+
+    </div>
+    <!--Panel End -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
+
+    <!--Outside panel content -->
+    <br><br>
+    <div data-role="content">
+
+
+        <!-- -->
+
+        <div data-role="footer" data-position="fixed">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+    </div>
+</div>
+
+
+<!-- Calculate Grade-->
+<div data-role="page" id="calculategradepage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <!--Panel Start -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
+        <h2 style="text-align: center;">User Profile</h2>
+
+        <!--Panel Content-->
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <label for="fname">First Name:</label>
+            <input type="text" data-clear-btn="false" name="fname" id="fname" value="" disabled>
+            <label for="lname">Last Name:</label>
+            <input type="text" data-clear-btn="false" name="lname" id="lname" value="" disabled>
+
+            <label for="sid">Student Id:</label>
+            <input type="text" data-clear-btn="false" name="sid" id="sid" value="" disabled>
+            <label for="eid">Email Id:</label>
+            <input type="text" data-clear-btn="false" name="eid" id="eid" value="" disabled>
+
+            <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
+            <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
+
+        </div>
+
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+
+    </div>
+    <!--Panel End -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
+
+    <!--Outside panel content -->
+    <br><br>
+    <div data-role="content">
+
+
+        <!-- -->
+
+        <div data-role="footer" data-position="fixed">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+    </div>
+</div>
+
+
 <script>
 	
 	
