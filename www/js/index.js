@@ -25,8 +25,8 @@ $(document).ready(function() {
 			return false;
 		}else if(confirmpassword != password){
 			alert("Confirm password does not match");
-			return false;*/
-		}else if(!nameCompare.test(fname) || fname == ""){
+			return false; }*/
+		else if(!nameCompare.test(fname) || fname == ""){
 			alert("Enter First Name");
 			return false;
 		}else if(!nameCompare.test(lname) || lname == ""){
@@ -35,10 +35,10 @@ $(document).ready(function() {
 		}else if(!idCompare.test(id) || id == "" || id == " "){
 			alert("Enter a Student ID");
 			return false;
-		}else{
-			
-			
-			
+		}
+
+	else{
+
         if ('localStorage' in window && window['localStorage'] !== null) {
             //alert("button");
             try {
@@ -62,14 +62,15 @@ $(document).ready(function() {
                     alert('Quota exceeded!');
                 }
             }
-        } else {
+        } //if
+		else {
             alert('Cannot store user preferences as your browser do not support local storage');
         }
 			
 			
-		}
+	} //else
 			
-			
+
 			
 			
     });
@@ -77,6 +78,7 @@ $(document).ready(function() {
 
     //Login
     $("#btnLogin").click(function(){
+
         var email =  $("#user_email").val().toLowerCase();
         var pass =  $("#user_password").val();
         var stringEmail = String(email);
@@ -87,28 +89,28 @@ $(document).ready(function() {
 		if(email == "" || email == " " || !emailCompare.test(email)){
 			alert("Enter correct Email ID");
 		}/*else if(pass == "" || !passwordCompare.test(pass)) {
-			alert("Wrong Password");*/
-		}else{
-        if(obj!=null || obj!=undefined) {
-            console.log(obj);
+			alert("Wrong Password"); }*/
+		else{
+			if(obj!=null || obj!=undefined) {
+				console.log(obj);
 
-           		var jsonobj = $.parseJSON(obj);
+					var jsonobj = $.parseJSON(obj);
 
-            	var res = JSON.parse(jsonobj);
+					var res = JSON.parse(jsonobj);
 
-            	//check password and email
+					//check password and email
 
-            	if(res.email==email && res.password==pass) {
-                console.log('authenticated');
-            	}
-            	else {
+					if(res.email==email && res.password==pass) {
+					console.log('authenticated');
+					}
+					else {
 
-                $("#authdiv").show();
-            	}
+					$("#authdiv").show();
+					}
 
-        		}
-			}
-    });
+					}//if
+			}//else
+    });//login fn
         
 
 });
