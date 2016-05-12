@@ -20,12 +20,12 @@ $(document).ready(function() {
 		if(email == "" || email == " " || !emailCompare.test(email)){
 			alert("Enter correct Email ID");
 			return false;
-		}else if(password == "" || !passwordCompare.test(password)) {
+		}/*else if(password == "" || !passwordCompare.test(password)) {
 			alert("Wrong Password");
 			return false;
 		}else if(confirmpassword != password){
 			alert("Confirm password does not match");
-			return false;
+			return false;*/
 		}else if(!nameCompare.test(fname) || fname == ""){
 			alert("Enter First Name");
 			return false;
@@ -81,13 +81,13 @@ $(document).ready(function() {
         var pass =  $("#user_password").val();
         var stringEmail = String(email);
         var obj = localStorage.getItem(stringEmail);
-		var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
-		var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+		//var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
+		//var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 
 		if(email == "" || email == " " || !emailCompare.test(email)){
 			alert("Enter correct Email ID");
-		}else if(pass == "" || !passwordCompare.test(pass)) {
-			alert("Wrong Password");
+		}/*else if(pass == "" || !passwordCompare.test(pass)) {
+			alert("Wrong Password");*/
 		}else{
         if(obj!=null || obj!=undefined) {
             console.log(obj);

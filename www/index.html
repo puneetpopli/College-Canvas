@@ -52,7 +52,7 @@
                         </div>
 
                         <p style="text-align: center;">
-                            <a href="#" class="ui-btn ui-btn-b" id="btnLogin" data-role="button"
+                            <a href="#userpage" class="ui-btn ui-btn-b" id="btnLogin" data-role="button"
                                data-icon="check" style="background: #0058AB; color: white;">Login</a>
                         </p>
                     </form>
@@ -113,7 +113,7 @@
 
 
                         <p style="text-align: center;">
-                            <a href="#homepage" class="ui-btn ui-btn-b" id="btnSubmit" style="background: #0058AB; color: white;">Sign Up</a>
+                            <a href="#userpage" class="ui-btn ui-btn-b" id="btnSubmit" style="background: #0058AB; color: white;">Sign Up</a>
                         </p>
 						
 						<div id="tabs" data-tabs="tabs">
@@ -130,7 +130,11 @@
         <h4>CMPE-235</h4>
     </div>
 </div>
-	
+
+
+
+
+
 <!-- Home Page -->
 	
 <div data-role="page" id="homepage" data-quicklinks="true" class="ui-responsive-panel">
@@ -161,7 +165,97 @@
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
-	
+
+
+
+
+
+
+<!-- User Profile -->
+
+<div data-role="page" id="userpage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <!--Panel Start -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
+        <h2 style="text-align: center;">User Profile</h2>
+
+        <!--Panel Content-->
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <label for="fname">First Name:</label>
+            <input type="text" data-clear-btn="false" name="fname" id="fname" value="" disabled>
+            <label for="lname">Last Name:</label>
+            <input type="text" data-clear-btn="false" name="lname" id="lname" value="" disabled>
+
+            <label for="sid">Student Id:</label>
+            <input type="text" data-clear-btn="false" name="sid" id="sid" value="" disabled>
+            <label for="eid">Email Id:</label>
+            <input type="text" data-clear-btn="false" name="eid" id="eid" value="" disabled>
+
+            <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
+        </div>
+
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
+
+    </div>
+    <!--Panel End -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
+
+    <!--Outside panel content -->
+    <br><br>
+    <div data-role="content">
+
+
+        <br><br><br><br>
+        <div class="ui-grid-a" align="center" >
+            <div class="ui-block-a" align="center">
+
+                <div class="circle">
+                    <a href="#" class="stylish">My Courses</a>
+                </div>
+
+
+            </div>
+            <div class="ui-block-b" align="center">
+                <div class="circle">
+                    <a href="#" class="stylish">Course Settings</a>
+                </div>
+
+            </div>
+        </div>
+        <br><br><br>
+        <div class="ui-grid-a" align="center">
+            <div class="ui-block-a" align="center">
+                <div class="circle">
+                    <a href="#" class="stylish">Calculate Grade</a>
+                </div>
+
+            </div>
+
+            <div class="ui-block-b" align="center">
+                <div class="circle">
+                    <a href="#" class="stylish">Student Bio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- -->
+
+    <div data-role="footer" data-position="fixed">
+        <h4>CMPE-235</h4>
+    </div><!-- /footer -->
+</div>
+
+
+<!-- -->
 	
 <script>
 	
