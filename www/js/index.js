@@ -1,6 +1,20 @@
 $(document).ready(function() {
     $("#authdiv").hide();
 
+
+	$("#review").hide();
+
+	$("#addclassadmin").on("click", function(){
+
+		$("#review").show();
+
+		$("#cid1").attr("value",$("#cid").val());
+		$("#cname1").val($("#cname").val());
+		$("#timings1").val($("#timings").val());
+		$("#gsheet1").val($("#gsheet").val());
+		$("#pname1").val($("#pname").val());
+	});
+
     //signup page
     $("#btnSubmit").click(function(){
         var record;
@@ -85,6 +99,20 @@ $(document).ready(function() {
 				document.getElementById("sid").value = jsonres.studentid;
 				document.getElementById("eid").value = jsonres.email;
 
+				//student bio page
+				//panel
+				document.getElementById("fnamebio").value = jsonres.firstname;
+				document.getElementById("lnamebio").value = jsonres.lastname;
+				document.getElementById("sidbio").value = jsonres.studentid;
+				document.getElementById("eidbio").value = jsonres.email;
+
+
+				//student bio page
+				document.getElementById("fnamebiomain").value = jsonres.firstname;
+				document.getElementById("lnamebiomain").value = jsonres.lastname;
+				document.getElementById("sidbiomain").value = jsonres.studentid;
+				document.getElementById("eidbiomain").value = jsonres.email;
+
 
                 console.log(user);
                 return true;
@@ -125,9 +153,11 @@ $(document).ready(function() {
 				break;
 			}
 		}
-		alert(flag);
 		if(flag) {
 
+			document.getElementById("eidprofcourse").value = email;
+			document.getElementById("eidprof1").value = email;
+			document.getElementById("eidpgrade").value = email;
 			$("#btnLogin").attr("href", "#profhomepage");
 		}
 		else {
@@ -149,6 +179,9 @@ $(document).ready(function() {
 
 					//check password and emails
 					if(res.email==email && res.password==pass) {
+
+
+						document.getElementById("userpagewelcome").value = res.firstname;
 
 						//first page
 						document.getElementById("userfname").value = res.firstname;
@@ -173,6 +206,20 @@ $(document).ready(function() {
 						document.getElementById("lname").value = res.lastname;
 						document.getElementById("sid").value = res.studentid;
 						document.getElementById("eid").value = res.email;
+						
+						//student bio page
+						//panel
+						document.getElementById("fnamebio").value = res.firstname;
+						document.getElementById("lnamebio").value = res.lastname;
+						document.getElementById("sidbio").value = res.studentid;
+						document.getElementById("eidbio").value = res.email;
+
+
+						//student bio page
+						document.getElementById("fnamebiomain").value = res.firstname;
+						document.getElementById("lnamebiomain").value = res.lastname;
+						document.getElementById("sidbiomain").value = res.studentid;
+						document.getElementById("eidbiomain").value = res.email;
 
 
 					}
