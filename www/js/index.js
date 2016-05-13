@@ -125,12 +125,15 @@ $(document).ready(function() {
 				break;
 			}
 		}
+		alert(flag);
 		if(flag) {
 
 			$("#btnLogin").attr("href", "#profhomepage");
 		}
-
-
+		else {
+			$("#btnLogin").attr("href", "#userpage");
+		}
+		//flag=!flag;
 		if(email == "" || email == " " || !emailCompare.test(email)){
 			alert("Enter correct Email ID");
 		}/*else if(pass == "" || !passwordCompare.test(pass)) {
@@ -181,6 +184,142 @@ $(document).ready(function() {
 					}//if
 			}//else
     });//login fn
-        
+
+
+	//Compute Grade
+	$("#computeGrade").click(function(){
+
+
+		var currentGrade = "NA";
+		var obj=localStorage.getItem($('#classNameComputeGrade').val());
+		var jsonobj = $.parseJSON(obj);
+
+		var res = JSON.parse(jsonobj);
+
+		var totalOutOf=(res.mHomeworks*res.sHomeworks/100)+(res.mLabs*res.sLabs/100)+(res.mProject*res.sProject/100)+(res.mPresentation*res.sPresentation/100)+(res.mMidterm*res.sMidterm/100)+(res.mFinal*res.sFinal/100);
+		var totalCurrent=Number( $('#homeworks').val() )+Number( $('#labs').val() )+Number( $('#project').val() )+Number( $('#presentation').val() )+Number( $('#midterm').val() )+Number( $('#final').val() )
+		var percent=(totalCurrent*100)/totalOutOf;
+
+		console.log("Final:"+Number( $('#final').val() ));
+		if(percent>res.sA)
+		{
+			currentGrade="A";
+		}
+		else if(percent>res.sB && percent<=res.eB)
+		{
+			currentGrade="B";
+		}
+		else if(percent>res.sC && percent<=res.sC)
+		{
+			currentGrade="C";
+		}
+		$('#finalgrade').text(currentGrade);
+		//console.log("total:"+totalOutOf);
+		//console.log("total Current:"+totalCurrent);
+		//alert($('#homeworks').val());
+	});
+
+	//ends here
+
+	//ADD GRADES-PROFESSOR
+
+	$("#addClass").click(function(){
+		var name=$('#classNameAddClass').val();
+
+		try {
+
+			var user = JSON.stringify({
+				mHomeworks: $("#mHomeworksaddclass").val(),
+				mLabs: $("#mLabsaddclass").val(),
+				mProject: $("#mProjectaddclass").val(),
+				mPresentation: $("#mPresentationaddclass").val(),
+				mMidterm: $("#mMidtermaddclass").val(),
+				mFinal: $("#mFinaladdclass").val()  ,
+
+				sHomeworks: $("#sHomeworksaddclass").val(),
+				sLabs: $("#sLabsaddclass").val(),
+				sProject: $("#sProjectaddclass").val(),
+				sPresentation: $("#sPresentationaddclass").val(),
+				sMidterm: $("#sMidtermaddclass").val(),
+				sFinal: $("#sFinaladdclass").val()  ,
+
+				sA: $("#sAaddclass").val(),
+				eA: $("#eAaddclass").val(),
+				sB: $("#sBaddclass").val(),
+				eB: $("#eBaddclass").val(),
+				sC: $("#sCaddclass").val(),
+				eC: $("#eCaddclass").val()
+			});
+			/*console.log($("#mHomeworks1").val());
+			 alert($("#mHomeworks1").val());*/
+			record = JSON.stringify(user);
+			//key = $("#email").val();
+			localStorage.setItem(name, record);
+			alert("The data was saved.");
+			console.log(user);
+			//return true;
+		}
+		catch (e)
+		{
+			if (e == QUOTA_EXCEEDED_ERR)
+			{
+				alert('Quota exceeded!');
+			}
+		}
+
+
+
+		classNames.push(name);
+		localStorage.setItem('classes', JSON.stringify(classNames));
+		//localStorage.setItem(name, classNames);
+		console.log(classNames[0]);
+	});
+
+	<!-- END HERE-->
+
+
+	$("#save").click(function() {
+		var name=$('#classNameSetting').val();
+
+		try {
+
+			var user = JSON.stringify({
+					mHomeworks: $("#mHomeworks").val(),
+					mLabs: $("#mLabs").val(),
+					mProject: $("#mProject").val(),
+					mPresentation: $("#mPresentation").val(),
+					mMidterm: $("#mMidterm").val(),
+					mFinal: $("#mFinal").val()  ,
+
+					sHomeworks: $("#sHomeworks").val(),
+					sLabs: $("#sLabs").val(),
+					sProject: $("#sProject").val(),
+					sPresentation: $("#sPresentation").val(),
+					sMidterm: $("#sMidterm").val(),
+					sFinal: $("#sFinal").val()  ,
+
+					sA: $("#sA").val(),
+					eA: $("#eA").val(),
+					sB: $("#sB").val(),
+					eB: $("#eB").val(),
+					sC: $("#sC").val(),
+					eC: $("#eC").val()
+				}),
+
+				record = JSON.stringify(user);
+			//key = $("#email").val();
+			localStorage.setItem(name, record);
+			alert("The data was saved.");
+			console.log(user);
+			//return true;
+		}
+		catch (e)
+		{
+			if (e == QUOTA_EXCEEDED_ERR)
+			{
+				alert('Quota exceeded!');
+			}
+		}
+	});
 
 });

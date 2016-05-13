@@ -219,7 +219,7 @@
         </div>
 
 
-        <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="footer" data-position="fixed" data-theme="b">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
 
@@ -280,7 +280,7 @@
 
     <!-- -->
 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-theme="b">
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
@@ -294,16 +294,11 @@
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar10" data-theme="b">
-        <h2 style="text-align: center;">User Profile</h2>
+        <h2 style="text-align: center;">Welcome Professor !</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameprof" readonly="true">
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameprof" readonly="true">
-
 
             <label for="eid">Email Id:</label>
             <input type="text" data-clear-btn="false" name="eid" id="eidprof" readonly="true">
@@ -312,7 +307,7 @@
         </div>
 
 
-        <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="footer" data-position="fixed" data-theme="b">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
 
@@ -331,17 +326,19 @@
 
         <br><br><br><br>
         <div class="ui-grid-a" align="center" >
-            <div class="ui-block-a" align="center">
-
+            <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#profcoursesettings" class="stylish">Course Settings</a>
+                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Course Settings</span>
                 </div>
-
 
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#profgradesettings" class="stylish">Grade Settings</a>
+                    <a href="#profgradesettings"><img src="http://puneetpoplisjsu.com/cd.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Grade Settings</span>
                 </div>
 
             </div>
@@ -351,7 +348,7 @@
 
     <!-- -->
 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-theme="b">
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
@@ -363,15 +360,11 @@
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar8" data-theme="b">
-        <h2 style="text-align: center;">User Profile</h2>
+        <h2 style="text-align: center;">Welcome Professor !</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnamepgrade" readonly="true">
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnamepgrade" readonly="true">
 
 
             <label for="eid">Email Id:</label>
@@ -398,8 +391,53 @@
     <!--Outside panel content -->
     <br><br>
     <div data-role="content">
-        <!-- -->
+        <!--Amol's Code -->
 
+        <div data-role="header" class="">
+            <h1>Add a class</h1>
+
+        </div>
+        <div data-role="content" class="">
+            <form>
+                <label for="Class ID"></label>
+                <input type="text" name="classNameAddClass" id="classNameAddClass" value="" placeholder="Class ID">
+                <h3>Maximum Points</h3>
+                <input type="number" name="mHomeworksaddclass" id="mHomeworksaddclass" value="" placeholder="Max points for homeworks">
+                <input type="number" name="mLabsaddclass" id="mLabsaddclass" value="" placeholder="Max points for labs">
+                <input type="number" name="mProjectaddclass" id="mProjectaddclass" value="" placeholder="Max points for project">
+                <input type="number" name="mPresentationaddclass" id="mPresentationaddclass" value="" placeholder="Max points for presentation">
+                <input type="number" name="mMidtermaddclass" id="mMidtermaddclass" value="" placeholder="Max points for midterm">
+                <input type="number" name="mFinaladdclass" id="mFinaladdclass" value="" placeholder="Max points for final">
+
+                <h3>Scaling Factors</h3>
+                <input type="number" name="sHomeworksaddclass" id="sHomeworksaddclass" value="" placeholder="Scaling Factor for homeworks">
+                <input type="number" name="sLabsaddclass" id="sLabsaddclass" value="" placeholder="Scaling Factor for labs">
+                <input type="number" name="sProjectaddclass" id="sProjectaddclass" value="" placeholder="Scaling Factor for project">
+                <input type="number" name="sPresentationaddclass" id="sPresentationaddclass" value="" placeholder="Scaling Factor for presentation">
+                <input type="number" name="sMidtermaddclass" id="sMidtermaddclass" value="" placeholder="Scaling Factor for midterm">
+                <input type="number" name="sFinaladdclass" id="sFinaladdclass" value="" placeholder="Scaling Factor for final">
+
+                <h3>Grade Ranges</h3>
+                <input type="number" name="sAaddclass" id="sAaddclass" value="" placeholder="Starting range for A">
+                <input type="number" name="eAaddclass" id="eAaddclass" value="" placeholder="Ending range for A">
+                <input type="number" name="sBaddclass" id="sBaddclass" value="" placeholder="Starting range for B">
+                <input type="number" name="eBaddclass" id="eBaddclass" value="" placeholder="Ending range for B">
+                <input type="number" name="sCaddclass" id="sCaddclass" value="" placeholder="Starting range for C">
+                <input type="number" name="eCaddclass" id="eCaddclass" value="" placeholder="Ending range for C">
+                <!-- <p style="text-align: center;">
+                    <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+                </p> -->
+                <a href="#" id='addClass'  data-role="button" data-icon="gear">Add a class</a>
+
+                <!-- <p class="final grade">
+                <label>Final Grade</label>
+                <span id="finalgrade">TBD</span>
+                </p> -->
+
+            </form>
+        </div>
+
+        <!--Amol's code end -->
         <div data-role="footer" data-position="fixed">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
@@ -423,11 +461,6 @@
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameprofcourse" readonly="true">
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameprofcourse" readonly="true">
-
 
             <label for="eid">Email Id:</label>
             <input type="text" data-clear-btn="false" name="eid" id="eidprofcourse" readonly="true">
@@ -514,22 +547,103 @@
 
            <div data-role="collapsible" data-iconpos="top" >
                 <h3>CMPE-235: Mobile Software System Design</h3>
-               <p>content</p>
+
+               <!-- Table 1 -->
+
+               <table data-role="table"  class="ui-responsive" id="myTable">
+                   <thead>
+                   <tr>
+                       <th>Course Id</th>
+                       <th>Course  Name</th>
+                       <th>Class Timings</th>
+                       <th>Professor Name</th>
+                       <th>Greensheet</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>1</td>
+                       <td>Alfreds Futterkiste</td>
+                       <td>Maria Anders</td>
+                       <td>Obere Str. 57</td>
+                       <td>Berlin</td>
+                   </tr>
+                   </tbody>
+               </table>
+
+               <!-- -->
            </div>
 
            <div data-role="collapsible" data-iconpos="top" data-theme="a" data-content-theme="a">
                <h3>CMPE-272: Enterprise Software Platforms</h3>
-               <p>content</p>
+               <table data-role="table"  class="ui-responsive" id="myTable">
+                   <thead>
+                   <tr>
+                       <th>Course Id</th>
+                       <th>Course  Name</th>
+                       <th>Class Timings</th>
+                       <th>Professor Name</th>
+                       <th>Greensheet</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>1</td>
+                       <td>Alfreds Futterkiste</td>
+                       <td>Maria Anders</td>
+                       <td>Obere Str. 57</td>
+                       <td>Berlin</td>
+                   </tr>
+                   </tbody>
+               </table>
            </div>
 
            <div data-role="collapsible" data-iconpos="top">
                <h3>CMPE-280: Web UI Design and Development</h3>
-               <p>content</p>
+               <table data-role="table"  class="ui-responsive" id="myTable">
+                   <thead>
+                   <tr>
+                       <th>Course Id</th>
+                       <th>Course  Name</th>
+                       <th>Class Timings</th>
+                       <th>Professor Name</th>
+                       <th>Greensheet</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>1</td>
+                       <td>Alfreds Futterkiste</td>
+                       <td>Maria Anders</td>
+                       <td>Obere Str. 57</td>
+                       <td>Berlin</td>
+                   </tr>
+                   </tbody>
+               </table>
            </div>
 
            <div data-role="collapsible" data-iconpos="top" data-theme="a" data-content-theme="a">
                <h3>CMPE-273: Enterprise Distributed Systems</h3>
-               <p>content</p>
+               <table data-role="table"  class="ui-responsive" id="myTable">
+                   <thead>
+                   <tr>
+                       <th>Course Id</th>
+                       <th>Course  Name</th>
+                       <th>Class Timings</th>
+                       <th>Professor Name</th>
+                       <th>Greensheet</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+                   <tr>
+                       <td>1</td>
+                       <td>Alfreds Futterkiste</td>
+                       <td>Maria Anders</td>
+                       <td>Obere Str. 57</td>
+                       <td>Berlin</td>
+                   </tr>
+                   </tbody>
+               </table>
            </div>
 
        </div>
@@ -640,6 +754,65 @@
     <div data-role="content">
 
 
+        <!--Amol's code-->
+
+
+        <div data-role="content" class="">
+            <form>
+                <div data-role="fieldcontain">
+                    <label for="class name"></label>
+                    <input type="text" name="classNameComputeGrade" id="classNameComputeGrade" value="" placeholder="Enter Class ID">
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Homeworks:</label>
+                        <input type="range" name="homeworks" id="homeworks" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Labs</label>
+                        <input type="range" name="labs" id="labs" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Project</label>
+                        <input type="range" name="project" id="project" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Presentation</label>
+                        <input type="range" name="presentation" id="presentation" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Midterm</label>
+                        <input type="range" name="midterm" id="midterm" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="Points">Final</label>
+                        <input type="range" name="final" id="final" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+                </div>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="b">Grade</li>
+                    <li id="finalgrade">TBD</li>
+
+                </ul>
+                <p style="text-align: center;">
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
+                </p>
+
+
+            </form>
+        </div>
+
+
+
         <!-- -->
 
         <div data-role="footer" data-position="fixed">
@@ -649,6 +822,16 @@
 </div>
 
 
+
+<!--Amol's Code -->
+
+<!-- Calculate Grade Page -->
+
+
+
+<!-- Calcluate Grade page ends -->
+
+<!-- -->
 <script>
 
 
