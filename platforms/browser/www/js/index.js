@@ -54,7 +54,38 @@ $(document).ready(function() {
                 record = JSON.stringify(user);
                 key = $("#email").val();
                 localStorage.setItem(key, record);
-                alert("The data was saved.");
+               // alert("The data was saved.");
+				//setting user details in panel
+
+				var res1 = JSON.parse(record);
+				var jsonres = JSON.parse(res1);
+				console.log(jsonres);
+
+				//first page
+				document.getElementById("userfname").value = jsonres.firstname;
+				document.getElementById("userlname").value = jsonres.lastname;
+				document.getElementById("usersid").value = jsonres.studentid;
+				document.getElementById("usereid").value = jsonres.email;
+
+				//second page
+				document.getElementById("fnameusercourse").value = jsonres.firstname;
+				document.getElementById("lnameusercourse").value = jsonres.lastname;
+				document.getElementById("sidusercourse").value = jsonres.studentid;
+				document.getElementById("eidusercourse").value = jsonres.email;
+
+				//third page
+				document.getElementById("fnameusersettings").value = jsonres.firstname;
+				document.getElementById("lnameusersettings").value = jsonres.lastname;
+				document.getElementById("sidusersettings").value = jsonres.studentid;
+				document.getElementById("eidusersettings").value = jsonres.email;
+
+				//fourth page
+				document.getElementById("fname").value = jsonres.firstname;
+				document.getElementById("lname").value = jsonres.lastname;
+				document.getElementById("sid").value = jsonres.studentid;
+				document.getElementById("eid").value = jsonres.email;
+
+
                 console.log(user);
                 return true;
             } catch (e) {
@@ -87,18 +118,15 @@ $(document).ready(function() {
 
 		var flag = false;
 		for(var i=0; i<arr.length; i++) {
-			alert(arr[i]);
-			if(email == arr[i]) {
-				alert(flag);
-				flag=true;
+
+			if (email == arr[i]) {
+
+				flag = true;
 				break;
 			}
 		}
-
-
-
 		if(flag) {
-			alert('mkc');
+
 			$("#btnLogin").attr("href", "#profhomepage");
 		}
 
@@ -115,10 +143,35 @@ $(document).ready(function() {
 
 					var res = JSON.parse(jsonobj);
 
-					//check password and email
 
+					//check password and emails
 					if(res.email==email && res.password==pass) {
-					console.log('authenticated');
+
+						//first page
+						document.getElementById("userfname").value = res.firstname;
+						document.getElementById("userlname").value = res.lastname;
+						document.getElementById("usersid").value = res.studentid;
+						document.getElementById("usereid").value = res.email;
+
+						//second page
+						document.getElementById("fnameusercourse").value = res.firstname;
+						document.getElementById("lnameusercourse").value = res.lastname;
+						document.getElementById("sidusercourse").value = res.studentid;
+						document.getElementById("eidusercourse").value = res.email;
+
+						//third page
+						document.getElementById("fnameusersettings").value = res.firstname;
+						document.getElementById("lnameusersettings").value = res.lastname;
+						document.getElementById("sidusersettings").value = res.studentid;
+						document.getElementById("eidusersettings").value = res.email;
+
+						//fourth page
+						document.getElementById("fname").value = res.firstname;
+						document.getElementById("lname").value = res.lastname;
+						document.getElementById("sid").value = res.studentid;
+						document.getElementById("eid").value = res.email;
+
+
 					}
 					else {
 

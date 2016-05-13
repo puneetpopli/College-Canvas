@@ -206,20 +206,20 @@
 
         <div data-role="main" class="ui-content" style="text-align: center;">
             <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="userfname" value="" disabled>
+            <input type="text" data-clear-btn="false" name="fname" id="userfname"  readonly="true">
             <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="userlname" value="" disabled>
+            <input type="text" data-clear-btn="false" name="lname" id="userlname" readonly="true">
 
             <label for="sid">Student Id:</label>
-            <input type="text" data-clear-btn="false" name="sid" id="usersid" value="" disabled>
+            <input type="text" data-clear-btn="false" name="sid" id="usersid" readonly="true">
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="usereid" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="usereid" readonly="true">
 
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
         </div>
 
 
-        <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="footer" data-position="fixed" data-theme="b">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
 
@@ -241,14 +241,18 @@
             <div class="ui-block-a" align="center">
 
                 <div class="circle">
-                    <a href="#mycoursespage" class="stylish">My Courses</a>
+                    <a href="#mycoursespage"><img src="http://puneetpoplisjsu.com/cd.png"></a>
+                    <br>
+                    <span style="color: floralwhite">My Courses</span>
                 </div>
 
 
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#settingspage" class="stylish">Course Settings</a>
+                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Course Settings</span>
                 </div>
 
             </div>
@@ -257,14 +261,18 @@
         <div class="ui-grid-a" align="center">
             <div class="ui-block-a" align="center">
                 <div class="circle">
-                    <a href="#calculategradepage" class="stylish">Calculate Grade</a>
+                    <a href="#calculategradepage"><img src="http://puneetpoplisjsu.com/cg.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Compute Grade</span>
                 </div>
 
             </div>
 
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#" class="stylish">Student Bio</a>
+                    <a href="#"><img src="http://puneetpoplisjsu.com/userprofile.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Student Bio</span>
                 </div>
             </div>
         </div>
@@ -272,7 +280,7 @@
 
     <!-- -->
 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-theme="b">
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
@@ -285,26 +293,21 @@
 <div data-role="page" id="profhomepage" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
-    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
-        <h2 style="text-align: center;">User Profile</h2>
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar10" data-theme="b">
+        <h2 style="text-align: center;">Welcome Professor !</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameprof" value="" disabled>
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameprof" value="" disabled>
-
 
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidprof" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eidprof" readonly="true">
 
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
         </div>
 
 
-        <div data-role="footer" data-position="fixed" data-theme="a">
+        <div data-role="footer" data-position="fixed" data-theme="b">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
 
@@ -312,7 +315,7 @@
     <!--Panel End -->
     <div data-role="header" data-theme="b" data-position="fixed">
         <h1>College Canvas</h1>
-        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#userNavbar10" data-icon="bars" data-iconpos="notext">Menu</a>
     </div>
 
 
@@ -323,17 +326,19 @@
 
         <br><br><br><br>
         <div class="ui-grid-a" align="center" >
-            <div class="ui-block-a" align="center">
-
+            <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#profcoursesettings" class="stylish">Course Settings</a>
+                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Course Settings</span>
                 </div>
-
 
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#profgradesettings" class="stylish">Grade Settings</a>
+                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/cd.png"></a>
+                    <br>
+                    <span style="color: floralwhite">Grade Settings</span>
                 </div>
 
             </div>
@@ -343,7 +348,7 @@
 
     <!-- -->
 
-    <div data-role="footer" data-position="fixed">
+    <div data-role="footer" data-position="fixed" data-theme="b">
         <h4>CMPE-235</h4>
     </div><!-- /footer -->
 </div>
@@ -354,20 +359,16 @@
 <div data-role="page" id="profgradesettings" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
-    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
-        <h2 style="text-align: center;">User Profile</h2>
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar8" data-theme="b">
+        <h2 style="text-align: center;">Welcome Professor !</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnamepgrade" value="" disabled>
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnamepgrade" value="" disabled>
 
 
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidpgrade" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eidpgrade" readonly="true">
 
             <a href="#profhomepage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
@@ -383,7 +384,7 @@
     <!--Panel End -->
     <div data-role="header" data-theme="b" data-position="fixed">
         <h1>College Canvas</h1>
-        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#userNavbar8" data-icon="bars" data-iconpos="notext">Menu</a>
     </div>
 
 
@@ -409,20 +410,15 @@
 <div data-role="page" id="profcoursesettings" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
-    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar" data-theme="b">
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar9" data-theme="b">
         <h2 style="text-align: center;">User Profile</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
-            <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameprofcourse" value="" disabled>
-            <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameprofcourse" value="" disabled>
-
 
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidprofcourse" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eidprofcourse" readonly="true">
 
             <a href="#profhomepage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
@@ -438,7 +434,7 @@
     <!--Panel End -->
     <div data-role="header" data-theme="b" data-position="fixed">
         <h1>College Canvas</h1>
-        <a href="#userNavbar" data-icon="bars" data-iconpos="notext">Menu</a>
+        <a href="#userNavbar9" data-icon="bars" data-iconpos="notext">Menu</a>
     </div>
 
 
@@ -470,14 +466,14 @@
 
         <div data-role="main" class="ui-content" style="text-align: center;">
             <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameusercourse" value="" disabled>
+            <input type="text" data-clear-btn="false" name="fname" id="fnameusercourse" readonly="true">
             <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameusercourse" value="" disabled>
+            <input type="text" data-clear-btn="false" name="lname" id="lnameusercourse" readonly="true">
 
             <label for="sid">Student Id:</label>
-            <input type="text" data-clear-btn="false" name="sid" id="sidusercourse" value="" disabled>
+            <input type="text" data-clear-btn="false" name="sid" id="sidusercourse" readonly="true">
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidusercourse" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eidusercourse" readonly="true">
 
             <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
@@ -548,14 +544,14 @@
 
         <div data-role="main" class="ui-content" style="text-align: center;">
             <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fnameusersettings" value="" disabled>
+            <input type="text" data-clear-btn="false" name="fname" id="fnameusersettings" readonly="true">
             <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lnameusersettings" value="" disabled>
+            <input type="text" data-clear-btn="false" name="lname" id="lnameusersettings" readonly="true">
 
             <label for="sid">Student Id:</label>
-            <input type="text" data-clear-btn="false" name="sid" id="sidusersettings" value="" disabled>
+            <input type="text" data-clear-btn="false" name="sid" id="sidusersettings" readonly="true">
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidusersettings" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eidusersettings" readonly="true">
 
             <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
@@ -600,14 +596,14 @@
 
         <div data-role="main" class="ui-content" style="text-align: center;">
             <label for="fname">First Name:</label>
-            <input type="text" data-clear-btn="false" name="fname" id="fname" value="" disabled>
+            <input type="text" data-clear-btn="false" name="fname" id="fname" readonly="true">
             <label for="lname">Last Name:</label>
-            <input type="text" data-clear-btn="false" name="lname" id="lname" value="" disabled>
+            <input type="text" data-clear-btn="false" name="lname" id="lname" readonly="true">
 
             <label for="sid">Student Id:</label>
-            <input type="text" data-clear-btn="false" name="sid" id="sid" value="" disabled>
+            <input type="text" data-clear-btn="false" name="sid" id="sid" readonly="true">
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eid" value="" disabled>
+            <input type="text" data-clear-btn="false" name="eid" id="eid" readonly="true">
 
             <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>

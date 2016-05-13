@@ -5,8 +5,11 @@
     background: transparent;
 }
 
-#loginpage, #singuppage, #userpage {
+#loginpage, #singuppage {
     background-image:url('http://www.puneetpoplisjsu.com/background-pattern.png');
+}
+#userpage, #profhomepage {
+    background-image: url("http://puneetpoplisjsu.com/background.jpg");
 }
 
 
