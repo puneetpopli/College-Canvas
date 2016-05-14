@@ -8,7 +8,7 @@
 #loginpage, #singuppage {
     background-image:url('http://www.puneetpoplisjsu.com/background-pattern.png');
 }
-#userpage, #profhomepage {
+#userpage, #profhomepage, #studentbiopage, #addclasspage {
     background-image: url("http://puneetpoplisjsu.com/background.jpg");
 }
 

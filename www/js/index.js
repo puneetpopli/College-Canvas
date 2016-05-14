@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $("#authdiv").hide();
 
-
 	$("#review").hide();
 
 	$("#addclassadmin").on("click", function(){
@@ -239,31 +238,65 @@ $(document).ready(function() {
 
 		var currentGrade = "NA";
 		var obj=localStorage.getItem($('#classNameComputeGrade').val());
+
+
 		var jsonobj = $.parseJSON(obj);
 
 		var res = JSON.parse(jsonobj);
+		console.log(res);
 
-		var totalOutOf=(res.mHomeworks*res.sHomeworks/100)+(res.mLabs*res.sLabs/100)+(res.mProject*res.sProject/100)+(res.mPresentation*res.sPresentation/100)+(res.mMidterm*res.sMidterm/100)+(res.mFinal*res.sFinal/100);
-		var totalCurrent=Number( $('#homeworks').val() )+Number( $('#labs').val() )+Number( $('#project').val() )+Number( $('#presentation').val() )+Number( $('#midterm').val() )+Number( $('#final').val() )
-		var percent=(totalCurrent*100)/totalOutOf;
 
-		console.log("Final:"+Number( $('#final').val() ));
-		if(percent>res.sA)
+
+
+
+		localStorage.setItem("homeLocal",Number( $('#homeworks').val() ));
+		localStorage.setItem("labLocal",Number( $('#labs').val() ));
+		localStorage.setItem("projectLocal",Number( $('#project').val() ));
+		localStorage.setItem("presentationLocal",Number( $('#presentation').val() ));
+		localStorage.setItem("midtermLocal",Number( $('#midterm').val() ));
+		localStorage.setItem("finalLocal",Number( $('#final').val() ));
+
+
+		var homeworkPercent=(Number( $('#homeworks').val() )*res.sHomeworks)/res.mHomeworks;
+		console.log(homeworkPercent);
+		var labsPercent=(Number( $('#labs').val() )*res.sLabs)/res.mLabs;
+		console.log(labsPercent);
+		var projectPercent=(Number( $('#project').val() )*res.sProject)/res.mProject;
+		console.log(projectPercent);
+		var presentationPercent=(Number( $('#presentation').val() )*res.sPresentation)/res.mPresentation;
+		console.log(presentationPercent);
+		var midtemPercent=(Number( $('#midterm').val() )*res.sMidterm)/res.mMidterm;
+		console.log(midtemPercent);
+		var finalPercent=(Number( $('#final').val() )*res.sFinal)/res.mFinal;
+
+		var percent=homeworkPercent+labsPercent+projectPercent+presentationPercent+midtemPercent+finalPercent;
+		console.log(percent);
+		if(Math.round(percent)>res.sA)
 		{
 			currentGrade="A";
 		}
-		else if(percent>res.sB && percent<=res.eB)
+		else if(Math.round(percent)>res.sB && Math.round(percent)<=res.eB)
 		{
 			currentGrade="B";
 		}
-		else if(percent>res.sC && percent<=res.sC)
+		else if(Math.round(percent)>res.sC && Math.round(percent)<=res.eC)
 		{
 			currentGrade="C";
 		}
+		else if(Math.round(percent)>res.sD && Math.round(percent)<=res.eD)
+		{
+			currentGrade="D";
+		}
+		else if(Math.round(percent)<=res.F)
+		{
+			currentGrade="F";
+		}
+		else {
+			currentGrade = "NA";
+		}
+
 		$('#finalgrade').text(currentGrade);
-		//console.log("total:"+totalOutOf);
-		//console.log("total Current:"+totalCurrent);
-		//alert($('#homeworks').val());
+
 	});
 
 	//ends here
@@ -295,16 +328,20 @@ $(document).ready(function() {
 				sB: $("#sBaddclass").val(),
 				eB: $("#eBaddclass").val(),
 				sC: $("#sCaddclass").val(),
-				eC: $("#eCaddclass").val()
+				eC: $("#eCaddclass").val(),
+				sD: $("#sD").val()  ,
+				eD: $("#eD").val()  ,
+				F:  $("#F").val(),
 			});
-			/*console.log($("#mHomeworks1").val());
-			 alert($("#mHomeworks1").val());*/
+
 			record = JSON.stringify(user);
-			//key = $("#email").val();
+
 			localStorage.setItem(name, record);
-			alert("The data was saved.");
-			console.log(user);
-			//return true;
+
+			swal({title:"Done!", text: "Your data was saved!", type:"success", timer: 2000,   showConfirmButton: false});
+
+			//console.log('add class' + user);
+
 		}
 		catch (e)
 		{
@@ -326,39 +363,40 @@ $(document).ready(function() {
 
 
 	$("#save").click(function() {
-		var name=$('#classNameSetting').val();
+		var name=$('#classNameAddClass').val();
 
 		try {
 
 			var user = JSON.stringify({
-					mHomeworks: $("#mHomeworks").val(),
-					mLabs: $("#mLabs").val(),
-					mProject: $("#mProject").val(),
-					mPresentation: $("#mPresentation").val(),
-					mMidterm: $("#mMidterm").val(),
-					mFinal: $("#mFinal").val()  ,
+					mHomeworks: $("#mHomeworksaddclass").val(),
+					mLabs: $("#mLabsaddclass").val(),
+					mProject: $("#mProjectaddclass").val(),
+					mPresentation: $("#mPresentationaddclass").val(),
+					mMidterm: $("#mMidtermaddclass").val(),
+					mFinal: $("#mFinaladdclass").val()  ,
 
-					sHomeworks: $("#sHomeworks").val(),
-					sLabs: $("#sLabs").val(),
-					sProject: $("#sProject").val(),
-					sPresentation: $("#sPresentation").val(),
-					sMidterm: $("#sMidterm").val(),
-					sFinal: $("#sFinal").val()  ,
+					sHomeworks: $("#sHomeworksaddclass").val(),
+					sLabs: $("#sLabsaddclass").val(),
+					sProject: $("#sProjectaddclass").val(),
+					sPresentation: $("#sPresentationaddclass").val(),
+					sMidterm: $("#sMidtermaddclass").val(),
+					sFinal: $("#sFinaladdclass").val()  ,
 
-					sA: $("#sA").val(),
-					eA: $("#eA").val(),
-					sB: $("#sB").val(),
-					eB: $("#eB").val(),
-					sC: $("#sC").val(),
-					eC: $("#eC").val()
+					sA: $("#sAaddclass").val(),
+					eA: $("#eAaddclass").val(),
+					sB: $("#sBaddclass").val(),
+					eB: $("#eBaddclass").val(),
+					sC: $("#sCaddclass").val(),
+					eC: $("#eCaddclass").val(),
+					sD: $("#sDaddclass").val()  ,
+					eD: $("#eDaddclass").val()  ,
+					F:  $("#Faddclass").val(),
 				}),
 
 				record = JSON.stringify(user);
 			//key = $("#email").val();
 			localStorage.setItem(name, record);
-			alert("The data was saved.");
-			console.log(user);
-			//return true;
+			swal({title:"Done!", text: "Your data was saved!", type:"success", timer: 2000,   showConfirmButton: false});
 		}
 		catch (e)
 		{

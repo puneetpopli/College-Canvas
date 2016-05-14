@@ -15,6 +15,12 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
     <!--My script -->
     <script src="js/index.js"></script>
 </head>
@@ -97,7 +103,7 @@
         <div data-role="tabs">
 
             <div class="container" style="margin-top: 10px;">
-            <div id="two" class="ui-content">
+            <div id="four" class="ui-content">
 
                 <div class="ui-grid-a" align="center" style="margin-bottom: 20px;">
                         <div class="circular">
@@ -162,39 +168,6 @@
 
 
 
-<!-- Home Page -->
-
-<div data-role="page" id="homepage" data-quicklinks="true" class="ui-responsive-panel">
-	<div data-role="header" data-theme="b" data-position="fixed">
-        <h1>College Canvas</h1>
-  	</div>
-	<div data-role="content">
-	<p style="text-align:right;">
-	<a href="#loginpage"><img src="img/Exit.png"></a>
-	</p>
-		<div data-role="tabs">
-			<div class="container">
-            	<div id="three" class="ui-content">
-					 <p style="text-align: center;">
-                     	<a href="#coursedescription" id="btnCourceDescription"><img src=img/course_desc.png></a>
-                     </p>
-					<p style="text-align: center;">
-                     	<a href="#coursedescription">Topic 2</a>
-                     </p>
-					<p style="text-align: center;">
-                     	<a href="#coursedescription">Topic 3</a>
-                     </p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div data-role="footer" data-position="fixed">
-        <h4>CMPE-235</h4>
-    </div><!-- /footer -->
-</div>
-
-
-<!--User page -->
 
 <div data-role="page" id="userpage" data-quicklinks="true" class="ui-responsive-panel">
 
@@ -250,9 +223,9 @@
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <a id="graph" href="#graphpage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
                     <br>
-                    <span style="color: floralwhite">Course Settings</span>
+                    <span style="color: floralwhite">View Graph</span>
                 </div>
 
             </div>
@@ -270,7 +243,7 @@
 
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#"><img src="http://puneetpoplisjsu.com/userprofile.png"></a>
+                    <a href="#studentbiopage"><img src="http://puneetpoplisjsu.com/userprofile.png"></a>
                     <br>
                     <span style="color: floralwhite">Student Bio</span>
                 </div>
@@ -294,14 +267,14 @@
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar10" data-theme="b">
-        <h2 style="text-align: center;">Welcome Professor !</h2>
+        <h2 style="text-align: center;">Welcome Admin !</h2>
 
         <!--Panel Content-->
 
         <div data-role="main" class="ui-content" style="text-align: center;">
 
             <label for="eid">Email Id:</label>
-            <input type="text" data-clear-btn="false" name="eid" id="eidprof" readonly="true">
+            <input type="text" data-clear-btn="false" name="eid" id="eidprof1" readonly="true">
 
             <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
         </div>
@@ -328,7 +301,7 @@
         <div class="ui-grid-a" align="center" >
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <a href="#addclasspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
                     <br>
                     <span style="color: floralwhite">Course Settings</span>
                 </div>
@@ -336,7 +309,7 @@
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/cd.png"></a>
+                    <a href="#profgradesettings"><img src="http://puneetpoplisjsu.com/cd.png"></a>
                     <br>
                     <span style="color: floralwhite">Grade Settings</span>
                 </div>
@@ -360,7 +333,7 @@
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar8" data-theme="b">
-        <h2 style="text-align: center;">Welcome Professor !</h2>
+        <h2 style="text-align: center;">Welcome Admin !</h2>
 
         <!--Panel Content-->
 
@@ -391,8 +364,55 @@
     <!--Outside panel content -->
     <br><br>
     <div data-role="content">
-        <!-- -->
+        <!--Amol's Code -->
 
+        <div data-role="header" class="">
+            <h1>Add a class</h1>
+
+        </div>
+        <div data-role="content" class="">
+            <form>
+                <label for="classNameAddClass"></label>
+                <input type="text" name="classNameAddClass" id="classNameAddClass" value="" placeholder="Class ID">
+                <h3>Maximum Points</h3>
+                <input type="number" name="mHomeworksaddclass" id="mHomeworksaddclass" value="" placeholder="Max points for homeworks">
+                <input type="number" name="mLabsaddclass" id="mLabsaddclass" value="" placeholder="Max points for labs">
+                <input type="number" name="mProjectaddclass" id="mProjectaddclass" value="" placeholder="Max points for project">
+                <input type="number" name="mPresentationaddclass" id="mPresentationaddclass" value="" placeholder="Max points for presentation">
+                <input type="number" name="mMidtermaddclass" id="mMidtermaddclass" value="" placeholder="Max points for midterm">
+                <input type="number" name="mFinaladdclass" id="mFinaladdclass" value="" placeholder="Max points for final">
+
+                <h3>Scaling Factors</h3>
+                <input type="number" name="sHomeworksaddclass" id="sHomeworksaddclass" value="" placeholder="Scaling Factor for homeworks">
+                <input type="number" name="sLabsaddclass" id="sLabsaddclass" value="" placeholder="Scaling Factor for labs">
+                <input type="number" name="sProjectaddclass" id="sProjectaddclass" value="" placeholder="Scaling Factor for project">
+                <input type="number" name="sPresentationaddclass" id="sPresentationaddclass" value="" placeholder="Scaling Factor for presentation">
+                <input type="number" name="sMidtermaddclass" id="sMidtermaddclass" value="" placeholder="Scaling Factor for midterm">
+                <input type="number" name="sFinaladdclass" id="sFinaladdclass" value="" placeholder="Scaling Factor for final">
+
+                <h3>Grade Ranges</h3>
+                <input type="number" name="sAaddclass" id="sAaddclass" value="" placeholder="Starting range for A">
+                <input type="number" name="eAaddclass" id="eAaddclass" value="" placeholder="Ending range for A">
+                <input type="number" name="sBaddclass" id="sBaddclass" value="" placeholder="Starting range for B">
+                <input type="number" name="eBaddclass" id="eBaddclass" value="" placeholder="Ending range for B">
+                <input type="number" name="sCaddclass" id="sCaddclass" value="" placeholder="Starting range for C">
+                <input type="number" name="eCaddclass" id="eCaddclass" value="" placeholder="Ending range for C">
+                <input type="number" name="sD" id="sD" value="" placeholder="Starting range for D">
+                <input type="number" name="eD" id="eD" value="" placeholder="Ending range for D">
+                <input type="number" name="F" id="F" value="" placeholder="Range for F">
+
+                <a href="#" id='addClass'  data-role="button" data-icon="gear">Add Grades</a>
+                <a href="#" id='save'  data-role="button" data-icon="gear">Update Grades</a>
+
+                <!-- <p class="final grade">
+                <label>Final Grade</label>
+                <span id="finalgrade">TBD</span>
+                </p> -->
+
+            </form>
+        </div>
+
+        <!--Amol's code end -->
         <div data-role="footer" data-position="fixed">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
@@ -407,11 +427,11 @@
 
 <!--Professor Course Settings -->
 
-<div data-role="page" id="profcoursesettings" data-quicklinks="true" class="ui-responsive-panel">
+<div data-role="page" id="addclasspage" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar9" data-theme="b">
-        <h2 style="text-align: center;">User Profile</h2>
+        <h2 style="text-align: center;">Welcome Admin !</h2>
 
         <!--Panel Content-->
 
@@ -438,12 +458,57 @@
     </div>
 
 
-    <!--Outside panel content -->
+    <div data-role="tabs">
+        <fieldset class="ui-grid-a">
+            <div class="ui-block-a">
+                <div class="container" style="margin-top: 10px;">
+                    <div id="five" class="ui-content">
+                        <div data-role="main" class="ui-content" style="text-align: center;">
+                            <input type="text" data-clear-btn="false" placeholder="Class Name" name="cname" id="cname" value="">
+                            <br>
+                            <input type="text" data-clear-btn="false" placeholder="Class Id" style="border: 0px" name="cid" id="cid" value="">
+                            <br>
+                            <input type="text" data-clear-btn="false" name="timings" id="timings" placeholder="Timings" value="">
+                            <br>
+                            <input type="text" data-clear-btn="false" name="pname" id="pname" placeholder="Prof Name" value="">
+                            <br>
+                            <textarea rows="4" cols="50" data-clear-btn="false" name="gsheet" id="gsheet" placeholder="Green Sheet" value=""></textarea>
+                            <br>
+                            <br>
+
+                            <a href="#" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" onclick="addclass()" id="addclassadmin" style="">Add Class</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui-block-b" id="review">
+                <div class="container" style="margin-top: 10px;">
+                    <div id="two" class="ui-content">
+                        <div data-role="main" class="ui-content" style="text-align: center;">
+                            <label for="cname1">Class Name:</label>
+                            <input type="text" data-clear-btn="false" name="cname1" id="cname1" disabled>
+                            <label for="cid1">Class Id:</label>
+                            <input type="text" data-clear-btn="false" style="border: 0px" name="cid1" id="cid1" disabled>
+                            <label for="timings1">Timings:</label>
+                            <input type="text" data-clear-btn="false" name="timings1" id="timings1" disabled>
+                            <label for="pname1">Prof Name:</label>
+                            <input type="text" data-clear-btn="false" name="pname1" id="pname1" disabled>
+                            <label for="gsheet1">Green Sheet:</label>
+                            <input type="text" data-clear-btn="false" name="gsheet1" id="gsheet1" disabled>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+    </div>
     <br><br>
     <div data-role="content">
         <!-- -->
 
-        <div data-role="footer" data-position="fixed">
+        <div data-role="footer" data-position="fixed" data-theme="b">
             <h4>CMPE-235</h4>
         </div><!-- /footer -->
     </div>
@@ -505,7 +570,7 @@
 
                <!-- Table 1 -->
 
-               <table data-role="table"  class="ui-responsive" id="myTable">
+               <table data-role="table"  class="ui-responsive" id="myTable1">
                    <thead>
                    <tr>
                        <th>Course Id</th>
@@ -517,10 +582,10 @@
                    </thead>
                    <tbody>
                    <tr>
-                       <td>1</td>
-                       <td>Alfreds Futterkiste</td>
-                       <td>Maria Anders</td>
-                       <td>Obere Str. 57</td>
+                       <td>CMPE 235</td>
+                       <td>Mobile Software System Design</td>
+                       <td>Saturday: 09:15am-12:00pm</td>
+                       <td>Prof. Richard Sinn</td>
                        <td>Berlin</td>
                    </tr>
                    </tbody>
@@ -531,7 +596,7 @@
 
            <div data-role="collapsible" data-iconpos="top" data-theme="a" data-content-theme="a">
                <h3>CMPE-272: Enterprise Software Platforms</h3>
-               <table data-role="table"  class="ui-responsive" id="myTable">
+               <table data-role="table"  class="ui-responsive" id="myTable2">
                    <thead>
                    <tr>
                        <th>Course Id</th>
@@ -543,10 +608,10 @@
                    </thead>
                    <tbody>
                    <tr>
-                       <td>1</td>
-                       <td>Alfreds Futterkiste</td>
-                       <td>Maria Anders</td>
-                       <td>Obere Str. 57</td>
+                       <td>CMPE 272</td>
+                       <td>Enterprise Software Platforms</td>
+                       <td>Monday: 06:00pm-08:45pm</td>
+                       <td>Prof. Dan Harkey</td>
                        <td>Berlin</td>
                    </tr>
                    </tbody>
@@ -555,7 +620,7 @@
 
            <div data-role="collapsible" data-iconpos="top">
                <h3>CMPE-280: Web UI Design and Development</h3>
-               <table data-role="table"  class="ui-responsive" id="myTable">
+               <table data-role="table"  class="ui-responsive" id="myTable3">
                    <thead>
                    <tr>
                        <th>Course Id</th>
@@ -567,10 +632,10 @@
                    </thead>
                    <tbody>
                    <tr>
-                       <td>1</td>
-                       <td>Alfreds Futterkiste</td>
-                       <td>Maria Anders</td>
-                       <td>Obere Str. 57</td>
+                       <td>CMPE 280</td>
+                       <td>Web UI Design and Development</td>
+                       <td>Prof. Chandra</td>
+                       <td>Thursday: 06:00pm-8:45pm</td>
                        <td>Berlin</td>
                    </tr>
                    </tbody>
@@ -591,10 +656,10 @@
                    </thead>
                    <tbody>
                    <tr>
-                       <td>1</td>
-                       <td>Alfreds Futterkiste</td>
-                       <td>Maria Anders</td>
-                       <td>Obere Str. 57</td>
+                       <td>CMPE 273</td>
+                       <td>Enterprise Distributed Systems</td>
+                       <td>Wednesday: 06:pm-08:45pm</td>
+                       <td>Prof. Sithu Aung</td>
                        <td>Berlin</td>
                    </tr>
                    </tbody>
@@ -615,7 +680,7 @@
 
 
 <!--Courses Setting-->
-<div data-role="page" id="settingspage" data-quicklinks="true" class="ui-responsive-panel">
+<div data-role="page" id="graphpage" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar3" data-theme="b">
@@ -657,7 +722,7 @@
     <div data-role="content">
 
 
-        <!-- -->
+        <div id="graphcontainer" style="min-width: 500px; height:400px; margin: 0 auto"></div>
 
         <div data-role="footer" data-position="fixed">
             <h4>CMPE-235</h4>
@@ -709,6 +774,65 @@
     <div data-role="content">
 
 
+        <!--Amol's code-->
+
+
+        <div data-role="content" class="">
+            <form>
+                <div data-role="fieldcontain">
+                    <label for="classNameComputeGrade"></label>
+                    <input type="text" name="classNameComputeGrade" id="classNameComputeGrade" value="" placeholder="Enter Class ID">
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="homeworks">Homeworks:</label>
+                        <input type="range" name="homeworks" id="homeworks" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="labs">Labs</label>
+                        <input type="range" name="labs" id="labs" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="project">Project</label>
+                        <input type="range" name="project" id="project" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="presentation">Presentation</label>
+                        <input type="range" name="presentation" id="presentation" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="midterm">Midterm</label>
+                        <input type="range" name="midterm" id="midterm" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+
+                    <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
+                        <label for="final">Final</label>
+                        <input type="range" name="final" id="final" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                    </div>
+
+                </div>
+                <ul data-role="listview" data-inset="true">
+                    <li data-role="list-divider" data-theme="b">Grade</li>
+                    <li id="finalgrade">TBD</li>
+
+                </ul>
+                <p style="text-align: center;">
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
+                </p>
+
+
+            </form>
+        </div>
+
+
+
         <!-- -->
 
         <div data-role="footer" data-position="fixed">
@@ -719,81 +843,156 @@
 
 
 
-<!--Amol's Code -->
+<!--Amrit's Code -->
 
-<!-- Calculate Grade Page -->
-<div data-role="page" class="" id="calculategradepage">
-    <div data-role="header" class="">
-        <h1>Compute Grade</h1>
+<!-- Student bio page -->
+
+
+<div data-role="page" id="studentbiopage" data-quicklinks="true" class="ui-responsive-panel">
+
+    <!--Panel Start -->
+    <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbarbio" data-theme="b">
+        <h2 style="text-align: center;">User Profile</h2>
+
+        <!--Panel Content-->
+
+        <div data-role="main" class="ui-content" style="text-align: center;">
+            <label for="fnamebio">First Name:</label>
+            <input type="text" data-clear-btn="false" name="fname" id="fnamebio" readonly="true">
+            <label for="lnamebio">Last Name:</label>
+            <input type="text" data-clear-btn="false" name="lname" id="lnamebio" readonly="true">
+
+            <label for="sidbio">Student Id:</label>
+            <input type="text" data-clear-btn="false" name="sid" id="sidbio" readonly="true">
+            <label for="eidbio">Email Id:</label>
+            <input type="text" data-clear-btn="false" name="eid" id="eidbio" readonly="true">
+
+            <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue" data-inline="true" data-icon="home" data-iconpos="right" data-transition="slidedown">Home</a>
+            <a href="#loginpage" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b" style="background-color: red">Logout</a>
+
+        </div>
+
+
+        <div data-role="footer" data-position="fixed" data-theme="a">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
 
     </div>
-    <div data-role="content" class="">
-        <form>
-            <div data-role="fieldcontain">
-                <label for="class name"></label>
-                <input type="text" name="classNameComputeGrade" id="classNameComputeGrade" value="" placeholder="Class Name">
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Homeworks:</label>
-                    <input type="range" name="homeworks" id="homeworks" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+    <!--Panel End -->
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>College Canvas</h1>
+        <a href="#userNavbarbio" data-icon="bars" data-iconpos="notext">Menu</a>
+    </div>
+
+
+    <!--Outside panel content -->
+    <br><br>
+    <div data-role="content">
+        <div class="container" style="margin-top: 10px;">
+            <div id="bio" class="ui-content">
+                <div data-role="main" class="ui-content" style="text-align: center;">
+                    <label for="sid">School Name:</label>
+                    <input type="text" data-clear-btn="false" name="schoolname" id="schoolname" value="San Jose State University" readonly="true">
+                    <label for="fnamebiomain">First Name:</label>
+                    <input type="text" data-clear-btn="false" style="border: 0px" name="fnamebiomain" id="fnamebiomain" value="" readonly="true">
+                    <label for="lnamebiomain">Last Name:</label>
+                    <input type="text" data-clear-btn="false" name="lnamebiomain" id="lnamebiomain" value="" readonly="true">
+                    <label for="sidbiomain">Student ID:</label>
+                    <input type="text" data-clear-btn="false" name="sidbiomain" id="sidbiomain" value="" readonly="true">
+                    <label for="eidbiomain">Email Id:</label>
+                    <input type="text" data-clear-btn="false" name="eidbiomain" id="eidbiomain" value="" readonly="true">
+                    <a href="#userpage" data-rel="close" data-role="button"  style="background-color: dodgerblue"  data-inline="true" data-icon="home" data-iconpos="right" data-transition="flip">Home</a>
+
                 </div>
-
-
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Labs</label>
-                    <input type="range" name="labs" id="labs" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
-                </div>
-
-
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Project</label>
-                    <input type="range" name="project" id="project" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
-                </div>
-
-
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Presentation</label>
-                    <input type="range" name="presentation" id="presentation" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
-                </div>
-
-
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Midterm</label>
-                    <input type="range" name="midterm" id="midterm" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
-                </div>
-
-
-                <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                    <label for="Points">Final</label>
-                    <input type="range" name="final" id="final" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
-                </div>
-
             </div>
-            <ul data-role="listview" data-inset="true">
-                <li data-role="list-divider" data-theme="b">Grade</li>
-                <li id="finalgrade">TBD</li>
+        </div>
 
-            </ul>
-            <p style="text-align: center;">
-                <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
-            </p>
-            <a href="#singuppage" id='signupButton'  data-role="button" data-icon="gear">Signup</a>
-            <a href="#loginpage" id='loginButton'  data-role="button" data-icon="gear">Login</a>
-            <!-- <p class="final grade">
-            <label>Final Grade</label>
-            <span id="finalgrade">TBD</span>
-            </p> -->
-
-        </form>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>CMPE-235</h4>
+        </div><!-- /footer -->
     </div>
 </div>
+<!--Student bio page ends here -->
 
-
-<!-- Calcluate Grade page ends -->
-
-<!-- -->
 <script>
+    $('#graph').on('click', function(){
+        // gather data
+
+        var homePercent = localStorage.getItem('homeLocal') / 5;
+        var labPercent = localStorage.getItem('labLocal') / 5;
+        var projectPercent = localStorage.getItem('projectLocal')/2;
+        var presentationPercent = localStorage.getItem('presentationLocal');
+        var midtermPercent = localStorage.getItem('midtermLocal');
+        var finalPercent = localStorage.getItem('finalLocal');
+
+        var json = {
+            "Homeworks":homePercent,
+            "Labs":labPercent,
+            "Project":projectPercent,
+            "Presentation":presentationPercent,
+            "Midterm":midtermPercent,
+            "Finals":finalPercent
+        };
+
+        var key;
+        var array_data = [];
+
+        for(key in json){
+            if(json.hasOwnProperty(key)){
+                array_data.push({'bif':key,'scores':json[key]});
+            }
+        }
+
+        var processed_json = new Array();
+        $.map(array_data, function(obj, i) {
+            processed_json.push([obj.bif, parseInt(obj.scores)]);
+        });
+
+        //end data gathering
+
+        var chart;
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'graphcontainer',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Marks for the student',
+                x: -20 //center
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                data: processed_json
+            }]
 
 
+        });
+
+    });
 </script>
 </body>
 </html>

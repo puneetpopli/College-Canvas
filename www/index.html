@@ -15,8 +15,18 @@
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+
     <!--My script -->
     <script src="js/index.js"></script>
+
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+
 </head>
 <body>
 
@@ -217,9 +227,9 @@
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a href="#settingspage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <a id="graph" href="#graphpage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
                     <br>
-                    <span style="color: floralwhite">Course Settings</span>
+                    <span style="color: floralwhite">View Graph</span>
                 </div>
 
             </div>
@@ -391,9 +401,10 @@
                 <input type="number" name="eBaddclass" id="eBaddclass" value="" placeholder="Ending range for B">
                 <input type="number" name="sCaddclass" id="sCaddclass" value="" placeholder="Starting range for C">
                 <input type="number" name="eCaddclass" id="eCaddclass" value="" placeholder="Ending range for C">
-                <!-- <p style="text-align: center;">
-                    <a href="#" id='saveSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
-                </p> -->
+                <input type="number" name="sD" id="sD" value="" placeholder="Starting range for D">
+                <input type="number" name="eD" id="eD" value="" placeholder="Ending range for D">
+                <input type="number" name="F" id="F" value="" placeholder="Range for F">
+
                 <a href="#" id='addClass'  data-role="button" data-icon="gear">Add Grades</a>
                 <a href="#" id='save'  data-role="button" data-icon="gear">Update Grades</a>
 
@@ -673,7 +684,7 @@
 
 
 <!--Courses Setting-->
-<div data-role="page" id="settingspage" data-quicklinks="true" class="ui-responsive-panel">
+<div data-role="page" id="graphpage" data-quicklinks="true" class="ui-responsive-panel">
 
     <!--Panel Start -->
     <div data-role="panel" data-position="left" data-position-fixed="false" data-display="overlay" id="userNavbar3" data-theme="b">
@@ -715,7 +726,7 @@
     <div data-role="content">
 
 
-        <!-- -->
+        <div id="graphcontainer" style="min-width: 500px; height:400px; margin: 0 auto"></div>
 
         <div data-role="footer" data-position="fixed">
             <h4>CMPE-235</h4>
@@ -776,8 +787,8 @@
                     <label for="classNameComputeGrade"></label>
                     <input type="text" name="classNameComputeGrade" id="classNameComputeGrade" value="" placeholder="Enter Class ID">
                     <div data-role="fieldcontain" style="margin-top: 2.5em;margin-left: 0.5em;margin-right: 0.5em">
-                        <label for="homeworks1">Homeworks:</label>
-                        <input type="range" name="homeworks" id="homeworks1" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
+                        <label for="homeworks">Homeworks:</label>
+                        <input type="range" name="homeworks" id="homeworks" value="60" min="0" max="500" data-highlight="true" data-theme="b" data-track-theme="a">
                     </div>
 
 
@@ -908,6 +919,84 @@
 <!--Student bio page ends here -->
 
 <script>
+    $('#graph').on('click', function(){
+        // gather data
+
+        var homePercent = localStorage.getItem('homeLocal') / 5;
+        var labPercent = localStorage.getItem('labLocal') / 5;
+        var projectPercent = localStorage.getItem('projectLocal')/2;
+        var presentationPercent = localStorage.getItem('presentationLocal');
+        var midtermPercent = localStorage.getItem('midtermLocal');
+        var finalPercent = localStorage.getItem('finalLocal');
+
+        var json = {
+            "Homeworks":homePercent,
+            "Labs":labPercent,
+            "Project":projectPercent,
+            "Presentation":presentationPercent,
+            "Midterm":midtermPercent,
+            "Finals":finalPercent
+        };
+
+        var key;
+        var array_data = [];
+
+        for(key in json){
+            if(json.hasOwnProperty(key)){
+                array_data.push({'bif':key,'scores':json[key]});
+            }
+        }
+
+        var processed_json = new Array();
+        $.map(array_data, function(obj, i) {
+            processed_json.push([obj.bif, parseInt(obj.scores)]);
+        });
+
+        //end data gathering
+
+        var chart;
+        chart = new Highcharts.Chart({
+            chart: {
+                renderTo: 'graphcontainer',
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie',
+                options3d: {
+                    enabled: true,
+                    alpha: 45,
+                    beta: 0
+                }
+            },
+            title: {
+                text: 'Marks for the student',
+                x: -20 //center
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    depth: 35,
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                        style: {
+                            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                        }
+                    }
+                }
+            },
+            series: [{
+                data: processed_json
+            }]
+
+
+        });
+
+    });
 </script>
 </body>
 </html>

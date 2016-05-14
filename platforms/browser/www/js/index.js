@@ -1,6 +1,19 @@
 $(document).ready(function() {
     $("#authdiv").hide();
 
+	$("#review").hide();
+
+	$("#addclassadmin").on("click", function(){
+
+		$("#review").show();
+
+		$("#cid1").attr("value",$("#cid").val());
+		$("#cname1").val($("#cname").val());
+		$("#timings1").val($("#timings").val());
+		$("#gsheet1").val($("#gsheet").val());
+		$("#pname1").val($("#pname").val());
+	});
+
     //signup page
     $("#btnSubmit").click(function(){
         var record;
@@ -85,6 +98,20 @@ $(document).ready(function() {
 				document.getElementById("sid").value = jsonres.studentid;
 				document.getElementById("eid").value = jsonres.email;
 
+				//student bio page
+				//panel
+				document.getElementById("fnamebio").value = jsonres.firstname;
+				document.getElementById("lnamebio").value = jsonres.lastname;
+				document.getElementById("sidbio").value = jsonres.studentid;
+				document.getElementById("eidbio").value = jsonres.email;
+
+
+				//student bio page
+				document.getElementById("fnamebiomain").value = jsonres.firstname;
+				document.getElementById("lnamebiomain").value = jsonres.lastname;
+				document.getElementById("sidbiomain").value = jsonres.studentid;
+				document.getElementById("eidbiomain").value = jsonres.email;
+
 
                 console.log(user);
                 return true;
@@ -127,10 +154,15 @@ $(document).ready(function() {
 		}
 		if(flag) {
 
+			document.getElementById("eidprofcourse").value = email;
+			document.getElementById("eidprof1").value = email;
+			document.getElementById("eidpgrade").value = email;
 			$("#btnLogin").attr("href", "#profhomepage");
 		}
-
-
+		else {
+			$("#btnLogin").attr("href", "#userpage");
+		}
+		//flag=!flag;
 		if(email == "" || email == " " || !emailCompare.test(email)){
 			alert("Enter correct Email ID");
 		}/*else if(pass == "" || !passwordCompare.test(pass)) {
@@ -146,6 +178,9 @@ $(document).ready(function() {
 
 					//check password and emails
 					if(res.email==email && res.password==pass) {
+
+
+						document.getElementById("userpagewelcome").value = res.firstname;
 
 						//first page
 						document.getElementById("userfname").value = res.firstname;
@@ -170,6 +205,20 @@ $(document).ready(function() {
 						document.getElementById("lname").value = res.lastname;
 						document.getElementById("sid").value = res.studentid;
 						document.getElementById("eid").value = res.email;
+						
+						//student bio page
+						//panel
+						document.getElementById("fnamebio").value = res.firstname;
+						document.getElementById("lnamebio").value = res.lastname;
+						document.getElementById("sidbio").value = res.studentid;
+						document.getElementById("eidbio").value = res.email;
+
+
+						//student bio page
+						document.getElementById("fnamebiomain").value = res.firstname;
+						document.getElementById("lnamebiomain").value = res.lastname;
+						document.getElementById("sidbiomain").value = res.studentid;
+						document.getElementById("eidbiomain").value = res.email;
 
 
 					}
@@ -181,6 +230,181 @@ $(document).ready(function() {
 					}//if
 			}//else
     });//login fn
-        
+
+
+	//Compute Grade
+	$("#computeGrade").click(function(){
+
+
+		var currentGrade = "NA";
+		var obj=localStorage.getItem($('#classNameComputeGrade').val());
+
+
+		var jsonobj = $.parseJSON(obj);
+
+		var res = JSON.parse(jsonobj);
+		console.log(res);
+
+
+
+
+
+		localStorage.setItem("homeLocal",Number( $('#homeworks').val() ));
+		localStorage.setItem("labLocal",Number( $('#labs').val() ));
+		localStorage.setItem("projectLocal",Number( $('#project').val() ));
+		localStorage.setItem("presentationLocal",Number( $('#presentation').val() ));
+		localStorage.setItem("midtermLocal",Number( $('#midterm').val() ));
+		localStorage.setItem("finalLocal",Number( $('#final').val() ));
+
+
+		var homeworkPercent=(Number( $('#homeworks').val() )*res.sHomeworks)/res.mHomeworks;
+		console.log(homeworkPercent);
+		var labsPercent=(Number( $('#labs').val() )*res.sLabs)/res.mLabs;
+		console.log(labsPercent);
+		var projectPercent=(Number( $('#project').val() )*res.sProject)/res.mProject;
+		console.log(projectPercent);
+		var presentationPercent=(Number( $('#presentation').val() )*res.sPresentation)/res.mPresentation;
+		console.log(presentationPercent);
+		var midtemPercent=(Number( $('#midterm').val() )*res.sMidterm)/res.mMidterm;
+		console.log(midtemPercent);
+		var finalPercent=(Number( $('#final').val() )*res.sFinal)/res.mFinal;
+
+		var percent=homeworkPercent+labsPercent+projectPercent+presentationPercent+midtemPercent+finalPercent;
+		console.log(percent);
+		if(Math.round(percent)>res.sA)
+		{
+			currentGrade="A";
+		}
+		else if(Math.round(percent)>res.sB && Math.round(percent)<=res.eB)
+		{
+			currentGrade="B";
+		}
+		else if(Math.round(percent)>res.sC && Math.round(percent)<=res.eC)
+		{
+			currentGrade="C";
+		}
+		else if(Math.round(percent)>res.sD && Math.round(percent)<=res.eD)
+		{
+			currentGrade="D";
+		}
+		else if(Math.round(percent)<=res.F)
+		{
+			currentGrade="F";
+		}
+		else {
+			currentGrade = "NA";
+		}
+
+		$('#finalgrade').text(currentGrade);
+
+	});
+
+	//ends here
+
+	//ADD GRADES-PROFESSOR
+
+	$("#addClass").click(function(){
+		var name=$('#classNameAddClass').val();
+
+		try {
+
+			var user = JSON.stringify({
+				mHomeworks: $("#mHomeworksaddclass").val(),
+				mLabs: $("#mLabsaddclass").val(),
+				mProject: $("#mProjectaddclass").val(),
+				mPresentation: $("#mPresentationaddclass").val(),
+				mMidterm: $("#mMidtermaddclass").val(),
+				mFinal: $("#mFinaladdclass").val()  ,
+
+				sHomeworks: $("#sHomeworksaddclass").val(),
+				sLabs: $("#sLabsaddclass").val(),
+				sProject: $("#sProjectaddclass").val(),
+				sPresentation: $("#sPresentationaddclass").val(),
+				sMidterm: $("#sMidtermaddclass").val(),
+				sFinal: $("#sFinaladdclass").val()  ,
+
+				sA: $("#sAaddclass").val(),
+				eA: $("#eAaddclass").val(),
+				sB: $("#sBaddclass").val(),
+				eB: $("#eBaddclass").val(),
+				sC: $("#sCaddclass").val(),
+				eC: $("#eCaddclass").val(),
+				sD: $("#sD").val()  ,
+				eD: $("#eD").val()  ,
+				F:  $("#F").val(),
+			});
+
+			record = JSON.stringify(user);
+
+			localStorage.setItem(name, record);
+			//alert("The data was saved.");
+			//console.log('add class' + user);
+
+		}
+		catch (e)
+		{
+			if (e == QUOTA_EXCEEDED_ERR)
+			{
+				alert('Quota exceeded!');
+			}
+		}
+
+
+
+		classNames.push(name);
+		localStorage.setItem('classes', JSON.stringify(classNames));
+		//localStorage.setItem(name, classNames);
+		console.log(classNames[0]);
+	});
+
+	<!-- END HERE-->
+
+
+	$("#save").click(function() {
+		var name=$('#classNameAddClass').val();
+
+		try {
+
+			var user = JSON.stringify({
+					mHomeworks: $("#mHomeworksaddclass").val(),
+					mLabs: $("#mLabsaddclass").val(),
+					mProject: $("#mProjectaddclass").val(),
+					mPresentation: $("#mPresentationaddclass").val(),
+					mMidterm: $("#mMidtermaddclass").val(),
+					mFinal: $("#mFinaladdclass").val()  ,
+
+					sHomeworks: $("#sHomeworksaddclass").val(),
+					sLabs: $("#sLabsaddclass").val(),
+					sProject: $("#sProjectaddclass").val(),
+					sPresentation: $("#sPresentationaddclass").val(),
+					sMidterm: $("#sMidtermaddclass").val(),
+					sFinal: $("#sFinaladdclass").val()  ,
+
+					sA: $("#sAaddclass").val(),
+					eA: $("#eAaddclass").val(),
+					sB: $("#sBaddclass").val(),
+					eB: $("#eBaddclass").val(),
+					sC: $("#sCaddclass").val(),
+					eC: $("#eCaddclass").val(),
+					sD: $("#sDaddclass").val()  ,
+					eD: $("#eDaddclass").val()  ,
+					F:  $("#Faddclass").val(),
+				}),
+
+				record = JSON.stringify(user);
+			//key = $("#email").val();
+			localStorage.setItem(name, record);
+			//alert("The data was saved.");
+			//console.log(user);
+			//return true;
+		}
+		catch (e)
+		{
+			if (e == QUOTA_EXCEEDED_ERR)
+			{
+				alert('Quota exceeded!');
+			}
+		}
+	});
 
 });
