@@ -38,9 +38,6 @@
     </div>
 
     <div data-role="content">
-
-
-
         <div data-role="tabs">
             <br><br><br>
 
@@ -97,7 +94,7 @@
 
 
 <!--SIGNUP PAGE -->
-<!--  Signup/Login page -->
+<!--  Signup page -->
 <div data-role="page" id="singuppage" data-quicklinks="true" class="ui-responsive-panel">
 
     <div data-role="header" data-theme="b" data-position="fixed">
@@ -130,14 +127,24 @@
                         <p style="text-align: center;">
                             <input type="text" name="lastname" id="lastname" data-clear-btn="true" value="" placeholder="Last Name" autocomplete="on">
                         </p>
+                        <div id="nameAuthDiv">
+                            <p style="color: red; text-align: center;">Enter name details!</p>
+                        </div>
 
                         <p style="text-align: center;">
                             <input type="text" name="studentid" id="studentid" data-clear-btn="true" value="" placeholder="Student Id" autocomplete="on">
                         </p>
+                        <div id="idAuthDiv">
+                            <p style="color: red; text-align: center;">Incorrect Student ID!</p>
+                        </div>
 
                         <p style="text-align: center;">
                             <input type="email" name="email" id="email" data-clear-btn="true" value="" placeholder="Email Id" autocomplete="on">
                         </p>
+                        <div id="emailAuthDiv">
+                            <p style="color: red; text-align: center;">Incorrect Email!</p>
+                        </div>
+
 
                         <p style="text-align: center;">
                             <input type="password" name="password" id="password" data-clear-btn="true" value="" placeholder="Password" autocomplete="on">
@@ -152,6 +159,9 @@
                         <p style="text-align: center;">
                             <a href="#userpage" class="ui-btn ui-btn-b" id="btnSubmit" style="background: #0058AB; color: white;">Sign Up</a>
                         </p>
+                        <div id="passwordAuthDiv">
+                            <p style="color: red; text-align: center;">Passwords should match!</p>
+                        </div>
 
 						<div id="tabs" data-tabs="tabs">
                             <p class="text-center" style="text-align:center;"><a href="#loginpage" data-toggle="tab">Already have Account ?</a>
@@ -227,7 +237,7 @@
             </div>
             <div class="ui-block-b" align="center">
                 <div class="circle">
-                    <a id="graph" href="#graphpage"><img src="http://puneetpoplisjsu.com/settings.png"></a>
+                    <a id="graph" href="#graphpage"><img src="http://puneetpoplisjsu.com/graph.png"></a>
                     <br>
                     <span style="color: floralwhite">View Graph</span>
                 </div>
@@ -590,7 +600,7 @@
                        <td>Mobile Software System Design</td>
                        <td>Saturday: 09:15am-12:00pm</td>
                        <td>Prof. Richard Sinn</td>
-                       <td>Berlin</td>
+                       <td><a href="http://puneetpoplisjsu.com/235gs.pdf">CMPE-235 Greensheet</a></td>
                    </tr>
                    </tbody>
                </table>
@@ -616,7 +626,7 @@
                        <td>Enterprise Software Platforms</td>
                        <td>Monday: 06:00pm-08:45pm</td>
                        <td>Prof. Dan Harkey</td>
-                       <td>Berlin</td>
+                       <td><a href="http://puneetpoplisjsu.com/272gs.pdf">CMPE-272 Greensheet</a></td>
                    </tr>
                    </tbody>
                </table>
@@ -640,7 +650,7 @@
                        <td>Web UI Design and Development</td>
                        <td>Prof. Chandra</td>
                        <td>Thursday: 06:00pm-8:45pm</td>
-                       <td>Berlin</td>
+                       <td><a href="http://puneetpoplisjsu.com/280gs.pdf">CMPE-280 Greensheet</a></td>
                    </tr>
                    </tbody>
                </table>
@@ -664,7 +674,7 @@
                        <td>Enterprise Distributed Systems</td>
                        <td>Wednesday: 06:pm-08:45pm</td>
                        <td>Prof. Sithu Aung</td>
-                       <td>Berlin</td>
+                       <td><a href="http://puneetpoplisjsu.com/273gs.pdf">CMPE-273 Greensheet</a></td>
                    </tr>
                    </tbody>
                </table>
