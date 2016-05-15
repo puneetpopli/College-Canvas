@@ -1,12 +1,17 @@
 $(document).ready(function() {
     $("#authdiv").hide();
+	$("#nameAuthDiv").hide();
+	$("#idAuthDiv").hide();
+	$("#emailAuthDiv").hide();
+	$("#passwordAuthDiv").hide();
+	
 
 	$("#review").hide();
 
 	$("#addclassadmin").on("click", function(){
 
 		$("#review").show();
-
+		swal({title:"Done!", text: "Class is added!", type:"success", timer: 2000,   showConfirmButton: false});
 		$("#cid1").attr("value",$("#cid").val());
 		$("#cname1").val($("#cname").val());
 		$("#timings1").val($("#timings").val());
@@ -22,7 +27,7 @@ $(document).ready(function() {
 		var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
 		var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
 		var nameCompare = /^[a-zA-Z]{2,30}$/;
-		var idCompare = /^\d{10}$/;
+		var idCompare = /^\d{9}$/;
 		var fname = $("#firstname").val();
 		var lname = $("#lastname").val();
 		var id = $("#studentid").val();
@@ -31,26 +36,19 @@ $(document).ready(function() {
 		var confirmpassword = $("#confirmpassword").val();
 		
 		if(email == "" || email == " " || !emailCompare.test(email)){
-			alert("Enter correct Email ID");
+			$("#emailAuthDiv").show();
 			return false;
-		}/*else if(password == "" || !passwordCompare.test(password)) {
-			alert("Wrong Password");
+		}else if (confirmpassword != password || confirmpassword == "") {
+			$("#passwordAuthDiv").show();
 			return false;
-		}else if(confirmpassword != password){
-			alert("Confirm password does not match");
-			return false; }
-		else if(!nameCompare.test(fname) || fname == ""){
-			alert("Enter First Name");
+		} else if (!idCompare.test(id) || id == "" || id == " ") {
+			$("#idAuthDiv").show();
 			return false;
-		}else if(!nameCompare.test(lname) || lname == ""){
-			alert("Enter Last Name");
-			return false;
-		}else if(!idCompare.test(id) || id == "" || id == " "){
-			alert("Enter a Student ID");
-			return false;
-		}*/
+		}else if(fname == "" || lname == "" ||password ==""){
+			$("#nameAuthDiv").show();
+		}
 
-	else{
+		else{
 
         if ('localStorage' in window && window['localStorage'] !== null) {
             //alert("button");
@@ -67,8 +65,6 @@ $(document).ready(function() {
                 record = JSON.stringify(user);
                 key = $("#email").val();
                 localStorage.setItem(key, record);
-               // alert("The data was saved.");
-				//setting user details in panel
 
 				var res1 = JSON.parse(record);
 				var jsonres = JSON.parse(res1);
@@ -138,7 +134,7 @@ $(document).ready(function() {
         var stringEmail = String(email);
         var obj = localStorage.getItem(stringEmail);
 
-		var arr = ["cmpe235@gmail.com", "cmpe280@gmail.com", "cmpe273@gmail.com", "cmpe272@gmail.com"];
+		var arr = ["admin.sjsu@gmail.com","cmpe235@gmail.com", "cmpe280@gmail.com", "cmpe273@gmail.com", "cmpe272@gmail.com"];
 
 		var emailCompare = /^([a-z0-9_.-]+)@([da-z.-]+).([a-z.]{2,6})$/;
 		//var passwordCompare = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
@@ -162,11 +158,11 @@ $(document).ready(function() {
 		else {
 			$("#btnLogin").attr("href", "#userpage");
 		}
-		//flag=!flag;
+
 		if(email == "" || email == " " || !emailCompare.test(email)){
-			alert("Enter correct Email ID");
-		}/*else if(pass == "" || !passwordCompare.test(pass)) {
-			alert("Wrong Password"); }*/
+			$("#authdiv").show();
+			return false;
+		}
 		else{
 			if(obj!=null || obj!=undefined) {
 				console.log(obj);
@@ -337,7 +333,9 @@ $(document).ready(function() {
 			record = JSON.stringify(user);
 
 			localStorage.setItem(name, record);
-			//alert("The data was saved.");
+
+			swal({title:"Done!", text: "Your data was saved!", type:"success", timer: 2000,   showConfirmButton: false});
+
 			//console.log('add class' + user);
 
 		}
@@ -394,9 +392,7 @@ $(document).ready(function() {
 				record = JSON.stringify(user);
 			//key = $("#email").val();
 			localStorage.setItem(name, record);
-			//alert("The data was saved.");
-			//console.log(user);
-			//return true;
+			swal({title:"Done!", text: "Your data was saved!", type:"success", timer: 2000,   showConfirmButton: false});
 		}
 		catch (e)
 		{

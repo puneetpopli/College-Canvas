@@ -11,7 +11,7 @@ $(document).ready(function() {
 	$("#addclassadmin").on("click", function(){
 
 		$("#review").show();
-
+		swal({title:"Done!", text: "Class is added!", type:"success", timer: 2000,   showConfirmButton: false});
 		$("#cid1").attr("value",$("#cid").val());
 		$("#cname1").val($("#cname").val());
 		$("#timings1").val($("#timings").val());
